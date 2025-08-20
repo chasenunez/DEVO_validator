@@ -1,0 +1,97 @@
+Site.ID,Biomasstype,Site,Invasion,Treatment,Weight_20by100_cm
+1,Litter,PnK,Native,Open,15.515
+1,Living,PnK,Native,Open,95.89
+2,Litter,PnK,Native,No livestock,39.14
+2,Living,PnK,Native,No livestock,177.355
+3,Litter,PnK,Native,No mammals,38.95
+3,Living,PnK,Native,No mammals,117.16
+4,Litter,PnK,Native,No insects,162.025
+4,Living,PnK,Native,No insects,53.76
+5,Litter,PnK,Invaded,Open,78.44
+5,Living,PnK,Invaded,Open,71.025
+6,Litter,PnK,Invaded,No livestock,107.475
+6,Living,PnK,Invaded,No livestock,326.45
+7,Litter,PnK,Invaded,No mammals,88.43
+7,Living,PnK,Invaded,No mammals,140.95
+8,Litter,PnK,Invaded,No insects,140.9
+8,Living,PnK,Invaded,No insects,62.34
+9,Litter,Vivan,Native,Open,47.16
+9,Living,Vivan,Native,Open,86.74
+10,Litter,Vivan,Native,No livestock,79.08
+10,Living,Vivan,Native,No livestock,110.51
+11,Litter,Vivan,Native,No mammals,85.83
+11,Living,Vivan,Native,No mammals,114.195
+12,Litter,Vivan,Native,No insects,137.845
+12,Living,Vivan,Native,No insects,50.92
+13,Litter,Vivan,Invaded,Open,4.76
+13,Living,Vivan,Invaded,Open,66.59
+14,Litter,Vivan,Invaded,No livestock,149.545
+14,Living,Vivan,Invaded,No livestock,258.3
+15,Litter,Vivan,Invaded,No mammals,86.985
+15,Living,Vivan,Invaded,No mammals,188.01
+16,Litter,Vivan,Invaded,No insects,141.795
+16,Living,Vivan,Invaded,No insects,40.465
+17,Litter,Alistair,Native,Open,88.77
+17,Living,Alistair,Native,Open,97.21
+18,Litter,Alistair,Native,No livestock,116.55
+18,Living,Alistair,Native,No livestock,106.46
+19,Litter,Alistair,Native,No mammals,110.365
+19,Living,Alistair,Native,No mammals,164.41
+20,Litter,Alistair,Native,No insects,114.525
+20,Living,Alistair,Native,No insects,35.55
+21,Litter,Alistair,Invaded,Open,91.09
+21,Living,Alistair,Invaded,Open,161.185
+22,Litter,Alistair,Invaded,No mammals,85.925
+22,Living,Alistair,Invaded,No mammals,133.29
+23,Litter,Alistair,Invaded,No livestock,100.12
+23,Living,Alistair,Invaded,No livestock,155.325
+24,Litter,Alistair,Invaded,No insects,300.655
+24,Living,Alistair,Invaded,No insects,302.095
+25,Litter,Ian,Native,Open,23.73
+25,Living,Ian,Native,Open,102.275
+26,Litter,Ian,Native,No mammals,46.695
+26,Living,Ian,Native,No mammals,83.615
+27,Litter,Ian,Native,No livestock,108.47
+27,Living,Ian,Native,No livestock,176.59
+28,Litter,Ian,Native,No insects,93.745
+28,Living,Ian,Native,No insects,25.14
+29,Litter,Ian,Invaded,Open,23.84
+29,Living,Ian,Invaded,Open,111.635
+30,Litter,Ian,Invaded,No livestock,51.415
+30,Living,Ian,Invaded,No livestock,102.105
+31,Litter,Ian,Invaded,No mammals,80.555
+31,Living,Ian,Invaded,No mammals,234.2
+32,Litter,Ian,Invaded,No insects,129.265
+32,Living,Ian,Invaded,No insects,74.095
+33,Litter,Helen,Native,Open,63.99
+33,Living,Helen,Native,Open,168.875
+34,Litter,Helen,Native,No livestock,57.41
+34,Living,Helen,Native,No livestock,122.195
+35,Litter,Helen,Native,No mammals,44.15
+35,Living,Helen,Native,No mammals,136.585
+36,Litter,Helen,Native,No insects,154.425
+36,Living,Helen,Native,No insects,102.595
+37,Litter,Helen,Invaded,Open,104.795
+37,Living,Helen,Invaded,Open,146.925
+38,Litter,Helen,Invaded,No livestock,55.965
+38,Living,Helen,Invaded,No livestock,154.64
+39,Litter,Helen,Invaded,No mammals,102.325
+39,Living,Helen,Invaded,No mammals,138.335
+40,Litter,Helen,Invaded,No insects,217.32
+40,Living,Helen,Invaded,No insects,19.405
+41,Litter,David,Native,Open,47.16
+41,Living,David,Native,Open,53.045
+42,Litter,David,Native,No livestock,92.225
+42,Living,David,Native,No livestock,64.19
+43,Litter,David,Native,No mammals,73.465
+43,Living,David,Native,No mammals,75.295
+44,Litter,David,Native,No insects,90.435
+44,Living,David,Native,No insects,35.73
+45,Litter,David,Invaded,Open,33.22
+45,Living,David,Invaded,Open,60.1
+46,Litter,David,Invaded,No livestock,78.965
+46,Living,David,Invaded,No livestock,159.39
+47,Litter,David,Invaded,No mammals,99.55
+47,Living,David,Invaded,No mammals,76.015
+48,Litter,David,Invaded,No insects,136.085
+48,Living,David,Invaded,No insects,150.84
