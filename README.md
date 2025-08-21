@@ -127,9 +127,6 @@ report.to_dict()  # Show detailed errors and warnings
     ]
 }
 ```
-#
-
-
 ### 6. **How to Integrate Frictionless into the EnviDat Workflow**
 
 #### 6.1 **Step 1: Researchers Check Data Quality**
