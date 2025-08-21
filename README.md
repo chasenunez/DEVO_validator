@@ -10,18 +10,7 @@ For **EnviDat**, quality assurance (QA) and control (QC) of uploaded ecological 
 * **Automates the Validation Process**: Ensures all incoming data fits the expected structure, types, and constraints prior to ingestion while freeing up staff for more complex tasks. 
 * **Catches Common as well as Specific Errors**: Missing values, incorrect types, or malformed columns are standard, but common data error in ecological data can be added via a custom schema. 
 
-### 3. **How Frictionless Can Be Incorporated into WSL's Workflow**
-
-* **Researchers' Workflow**:
-  * Use **[Open Data Editor](https://okfn.org/en/projects/open-data-editor/)** (GUI) to perform quality assurance (QA) checks before uploading datasets.
-  * Researchers can view and fix errors interactively.
-
-* **IT Staff's Workflow**:
-
-  * IT staff can automate quality control (QC) checks using **Frictionless in Python scripts**.
-  * This can be integrated into the data upload process for backend validation.
-
-### 4. **Example Dataset with Errors**
+### 3. **Example Dataset with Errors**
 
 Let’s take a look at a **subsample of a real ecological dataset** uploaded to EnviDat (Biomass), but we will introduce some intentional errors (missing values, blank headers, blank rows, NA's, data type error, etc.).
 
