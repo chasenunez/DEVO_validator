@@ -2,8 +2,6 @@
 
 The **Frictionless Framework** offers open-source tools that help manage and ensure data quality. It’s ideal for use cases like **EnviDat**, where the integrity and reliability of data are critical for ecological research. It has been used successfully in similar repositories like [DRYAD](https://blog.datadryad.org/2020/11/18/frictionless-data/) and the [Global Biodiversity Information Facility (GBIF)](https://data-blog.gbif.org/post/frictionless-data-and-darwin-core/) for data validation and quality control.
 
-
-
 ### 2. **Big Picture: Why Frictionless for EnviDat?**
 
 For **EnviDat**, quality control (QC) of uploaded ecological datasets is essential. Frictionless:
@@ -13,9 +11,7 @@ For **EnviDat**, quality control (QC) of uploaded ecological datasets is essenti
 * **Improves Data Integrity**: Both on the researcher side (self-checks) and the backend (automated validation by IT staff).
 * **Flexibility**: Researchers can validate their own datasets using a graphical interface (Open Data Editor) while IT staff can run backend checks through Python scripts.
 
-Frictionless provides a simple yet powerful **schema validation** tool, helping to standardize ecological datasets before they are shared with EnviDat.
-
-
+Frictionless provides a simple yet powerful **schema validation** tool, helping to standardize ecological datasets before they are ingested by EnviDat.
 
 ### 3. **How Frictionless Can Be Incorporated into WSL's Workflow**
 
@@ -28,8 +24,6 @@ Frictionless provides a simple yet powerful **schema validation** tool, helping 
 
   * IT staff can automate quality control (QC) checks using **Frictionless in Python scripts**.
   * This can be integrated into the data upload process for backend validation.
-
-
 
 ### 4. **Example Dataset with Errors**
 
@@ -61,9 +55,6 @@ Site.ID,Biomasstype,Site,Invasion,Treatment,Weight_20by100_cm,sample_type
 df = pd.read_csv(StringIO(data))
 df.head()  # Displaying the first few rows of the dataset
 ```
-
-
-
 ### 5. **Step-by-Step: How Frictionless Helps QC and QA**
 
 #### 5.1 **Using the Open Data Editor (GUI) for QA**:
