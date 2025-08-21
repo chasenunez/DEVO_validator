@@ -2,7 +2,7 @@
 
 The **Frictionless Framework** offers open-source tools that help manage and ensure data quality. It’s ideal for use cases like **EnviDat**, where the integrity and reliability of data are critical for ecological research. It has been used successfully in repositories like the [Global Biodiversity Information Facility (GBIF)](https://www.gbif.org/) and [OpenAIRE](https://www.openaire.eu/) for data validation and quality control.
 
----
+
 
 ### 2. **Big Picture: Why Frictionless for EnviDat?**
 
@@ -15,7 +15,7 @@ For **EnviDat**, quality control (QC) of uploaded ecological datasets is essenti
 
 Frictionless provides a simple yet powerful **schema validation** tool, helping to standardize ecological datasets before they are shared with EnviDat.
 
----
+
 
 ### 3. **How Frictionless Can Be Incorporated into WSL's Workflow**
 
@@ -29,7 +29,7 @@ Frictionless provides a simple yet powerful **schema validation** tool, helping 
   * IT staff can automate quality control (QC) checks using **Frictionless in Python scripts**.
   * This can be integrated into the data upload process for backend validation.
 
----
+
 
 ### 4. **Example Dataset with Errors**
 
@@ -62,7 +62,7 @@ df = pd.read_csv(StringIO(data))
 df.head()  # Displaying the first few rows of the dataset
 ```
 
----
+
 
 ### 5. **Step-by-Step: How Frictionless Helps QC and QA**
 
@@ -148,7 +148,7 @@ custom_report = custom_schema.validate(df)
 custom_report.to_dict()
 ```
 
----
+
 
 ### 6. **How to Integrate Frictionless into the EnviDat Workflow**
 
@@ -186,7 +186,7 @@ else:
     print("Data has errors:", package.errors)
 ```
 
----
+
 
 ### 7. **Conclusion**
 
@@ -200,7 +200,3 @@ By implementing **Frictionless**, WSL can streamline data quality assurance and 
 * Set up Frictionless in the EnviDat environment.
 * Train researchers on how to use the Open Data Editor for self-checks.
 * Automate backend validation using Frictionless Python scripts to ensure the integrity of all uploaded data.
-
----
-
-This notebook serves as an introduction to integrating Frictionless into your data management workflow, providing clear steps for both researchers and IT staff.
