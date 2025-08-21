@@ -47,9 +47,9 @@ print("Wrote biomass_sample.csv")
 df = pd.read_csv(StringIO(data))
 df.head()  # Displaying the first few rows of the dataset
 ```
-### 5. **Step-by-Step: How Frictionless Helps QC and QA**
+### 4. **Step-by-Step: How Frictionless Helps QC and QA**
 
-#### 5.1 **Using the Open Data Editor (GUI) for QA**:
+#### 4.1 **Using the Open Data Editor (GUI) for QA**:
 
 Researchers can use the **[Open Data Editor](https://okfn.org/en/projects/open-data-editor/)** to interactively validate their datasets before uploading them to EnviDat. The Open Data Editor provides a graphical interface that checks data quality in real-time.
 
@@ -66,7 +66,7 @@ Researchers can open their dataset, visualize errors, and directly modify them i
 
 [ADD GRAPHICS HERE OF THIS EXAMPLE IN GUI FIX MODE]
 
-#### 5.2 **Using Frictionless in Python for Backend Validation (QC)**:
+#### 4.2 **Using Frictionless in Python for Backend Validation (QC)**:
 
 Once the preliminary check has been done by the researchers, Scientific IT staff can run a Python script (or work in the console) to validate datasets automatically before upload. This is done by defining a custom **schema** that specifies the expected structure and rules for the dataset.
 
@@ -74,7 +74,7 @@ Once the preliminary check has been done by the researchers, Scientific IT staff
 # Install Frictionless Framework if necessary
 !pip install frictionless
 ```
-### 5.3 **What Errors Does the Default Schema Catch?**
+### 4.3 **What Errors Does the Default Schema Catch?**
 
 * **Missing or null values** (e.g., NA in numerical fields).
 * **Type mismatches** (e.g., text in numeric columns).
@@ -82,7 +82,7 @@ Once the preliminary check has been done by the researchers, Scientific IT staff
 * **Duplicate rows** or columns.
 * **Empty or missing headers**.
 
-#### 5.4 **Custom Schema**:
+#### 4.4 **Custom Schema**:
 
 You can **extend the default schema** to suit your own data structure. For example, you can set custom ranges for numeric columns, specific formats for strings, and define additional validation rules (e.g., a specific regex pattern for site names).
 
@@ -132,9 +132,9 @@ print(row)
     ]
 }
 ```
-### 6. **How to Integrate Frictionless into the EnviDat Workflow**
+### 5. **How to Integrate Frictionless into the EnviDat Workflow**
 
-#### 6.1 **Step 1: Researchers Check Data Quality**
+#### 5.1 **Step 1: Researchers Check Data Quality**
 
 * **Open Data Editor**: Researchers use the Open Data Editor to visually check their datasets. They can:
 
@@ -142,7 +142,7 @@ print(row)
   * Fix issues like missing values or incorrect data types.
   * Download the validated dataset.
 
-#### 6.2 **Step 2: IT Staff Backend Validation**
+#### 5.2 **Step 2: IT Staff Backend Validation**
 
 * **Automated Validation**: Once the dataset is uploaded, IT staff can run a backend Python script using Frictionless to validate the data before it's stored in EnviDat.
 
