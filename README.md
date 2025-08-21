@@ -7,7 +7,7 @@ The **[Frictionless Framework](https://framework.frictionlessdata.io/)** offers 
 For **EnviDat**, quality assurance (QA) and control (QC) of uploaded ecological datasets is essential. Frictionless offers:
 
 * **Flexibility**: Researchers can validate their own datasets using a graphical interface (**[Open Data Editor](https://okfn.org/en/projects/open-data-editor/)**) while SciIT staff can run backend checks through Python scripts.
-* **Automates the Validation Process**: Ensures all incoming data fits the expected structure, types, and constraints prior to ingestion.
+* **Automates the Validation Process**: Ensures all incoming data fits the expected structure, types, and constraints prior to ingestion while freeing up staff for more complex tasks. 
 * **Catches Common as well as Specific Errors**: Missing values, incorrect types, or malformed columns are standard, but common data error in ecological data can be added via a custom schema. 
 
 ### 3. **How Frictionless Can Be Incorporated into WSL's Workflow**
