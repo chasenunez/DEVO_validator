@@ -81,7 +81,6 @@ Once the preliminary check has been done by the researchers, Scientific IT staff
 # Install Frictionless Framework if necessary
 !pip install frictionless
 ```
-
 ```python
 from frictionless import Schema, Field
 
@@ -102,7 +101,6 @@ report = schema.validate(df)
 # Display the validation issues (if any)
 report.to_dict()  # Show detailed errors and warnings
 ```
-
 **Output Example**:
 
 ```json
@@ -115,7 +113,6 @@ report.to_dict()  # Show detailed errors and warnings
     ]
 }
 ```
-
 #### 5.3 **What Errors Does the Default Schema Catch?**
 
 * **Missing or null values** (e.g., NA in numerical fields).
@@ -139,7 +136,6 @@ custom_schema = Schema(fields=[
 custom_report = custom_schema.validate(df)
 custom_report.to_dict()
 ```
-
 ### 6. **How to Integrate Frictionless into the EnviDat Workflow**
 
 #### 6.1 **Step 1: Researchers Check Data Quality**
@@ -175,7 +171,6 @@ if package.valid:
 else:
     print("Data has errors:", package.errors)
 ```
-
 ### 7. **Conclusion**
 
 By implementing **Frictionless**, WSL can streamline data quality assurance and control for EnviDat, empowering both researchers and IT staff:
