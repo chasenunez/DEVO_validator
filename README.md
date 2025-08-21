@@ -73,6 +73,8 @@ Researchers can use the **[Open Data Editor](https://okfn.org/en/projects/open-d
 
 Researchers can open their dataset, visualize errors, and directly modify them in the GUI. If a field has missing values, users can choose to replace them with the average or a specific value.
 
+[ADD GRAPHICS HERE OF THIS EXAMPLE IN GUI FIX MODE]
+
 #### 5.2 **Using Frictionless in Python for Backend Validation (QC)**:
 
 Once the preliminary check has been done by the researchers, Scientific IT staff can run a Python script (or work in the console) to validate datasets automatically before upload. This is done by defining a custom **schema** that specifies the expected structure and rules for the dataset.
@@ -81,6 +83,18 @@ Once the preliminary check has been done by the researchers, Scientific IT staff
 # Install Frictionless Framework if necessary
 !pip install frictionless
 ```
+### 5.3 **What Errors Does the Default Schema Catch?**
+
+* **Missing or null values** (e.g., NA in numerical fields).
+* **Type mismatches** (e.g., text in numeric columns).
+* **Invalid values** (e.g., `Invasion` should be either "Native" or "Invaded").
+* **Duplicate rows** or columns.
+* **Empty or missing headers**.
+
+#### 5.4 **Custom Schema**:
+
+You can **extend the default schema** to suit your own data structure. For example, you can set custom ranges for numeric columns, specific formats for strings, and define additional validation rules (e.g., a specific regex pattern for site names).
+
 ```python
 from frictionless import Schema, Field
 
@@ -113,29 +127,9 @@ report.to_dict()  # Show detailed errors and warnings
     ]
 }
 ```
-#### 5.3 **What Errors Does the Default Schema Catch?**
+#
 
-* **Missing or null values** (e.g., NA in numerical fields).
-* **Type mismatches** (e.g., text in numeric columns).
-* **Invalid values** (e.g., `Invasion` should be either "Native" or "Invaded").
-* **Duplicate rows** or columns.
-* **Empty or missing headers**.
 
-#### 5.4 **Custom Schema**:
-
-You can **extend the default schema** to suit your own data structure. For example, you can set custom ranges for numeric columns, specific formats for strings, and define additional validation rules (e.g., a specific regex pattern for site names).
-
-```python
-# Example: Adding custom validation rules
-custom_schema = Schema(fields=[
-    Field(name="Weight_20by100_cm", type="number", required=True, minimum=0, maximum=500),
-    Field(name="Site", type="string", pattern=r"^[A-Za-z]+$")
-])
-
-# Validate dataset with custom rules
-custom_report = custom_schema.validate(df)
-custom_report.to_dict()
-```
 ### 6. **How to Integrate Frictionless into the EnviDat Workflow**
 
 #### 6.1 **Step 1: Researchers Check Data Quality**
