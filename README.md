@@ -30,25 +30,28 @@ Original data have no errors, and come from _"Herbivory mediates the response of
 
 ```python
 import pandas as pd
-from io import StringIO
+from pathlib import Path
 
-# Sample dataset with errors (e.g., missing values, blank headers)
-data = """
+csv_text = """
 Site.ID,Biomasstype,Site,Invasion,Treatment,Weight_20by100_cm,sample_type
-1,Litter,PnK,Native,Open,15.515
-1,Living,PnK,Native,Open,95.89
-2,Litter,PnK,Native,No livestock,39.14
-2,Living,PnK,,No livestock,177.355
-3,Litter,PnK,Native,No mammals,38.95
-error,Living,PnK,Native,No mammals,117.16
-,,,,,
+1,Litter,PnK,Native,Open,15.515,
+1,Living,PnK,Native,Open,95.89,
+2,Litter,PnK,Native,No livestock,39.14,
+2,Living,PnK,,No livestock,177.355,
+3,Litter,PnK,Native,No mammals,38.95,
+error,Living,PnK,Native,No mammals,117.16,
+,,,,,,
 ,,,,,,red
-9,Litter,Vivan,Native,Open,NA
-9,Living,Vivan,Native,Open,86.74
-10,Litter,Vivan,Native,No livestock,79.08
-10,Living,Vivan,Native,No livestock,110.51
-11,Litter,Vivan,Native,No mammals,85.83
-11,Living,Vivan,Native,No mammals,114.195
+9,Litter,Vivan,Native,Open,NA,
+9,Living,Vivan,Native,Open,86.74,
+10,Litter,Vivan,Native,No livestock,79.08,
+10,Living,Vivan,Native,No livestock,110.51,
+11,Litter,Vivan,Native,No mammals,85.83,
+11,Living,Vivan,Native,No mammals,114.195,
+""".strip()+"\n"
+
+Path("biomass_sample.csv").write_text(csv_text, encoding="utf-8")
+print("Wrote biomass_sample.csv")
 """
 
 # Load the dataset into pandas DataFrame
@@ -95,7 +98,7 @@ Once the preliminary check has been done by the researchers, Scientific IT staff
 You can **extend the default schema** to suit your own data structure. For example, you can set custom ranges for numeric columns, specific formats for strings, and define additional validation rules (e.g., a specific regex pattern for site names).
 
 ```python
-from frictionless import Schema
+ffrom frictionless import Schema
 
 schema = Schema({
 "fields": [
@@ -107,18 +110,29 @@ schema = Schema({
 {"name": "Weight_20by100_cm", "type": "number", "constraints": {"required": True, "minimum": 0}},
 {"name": "sample_type", "type": "string", "constraints": {"required": False}},
 ],
-# Treat NA/empty as nulls for required/type checks
 "missingValues": ["", "NA"]
 })
+```
+```python
+from frictionless import Resource, validate
 
-# Validate the dataset against the custom schema
-report = schema.validate(df)
+resource = Resource(path="biomass_sample.csv", schema=schema)
+report = validate(resource)
+print(report.valid)
+```
+Multi-table validation:
+```python
+from frictionless import Package, Resource, validate
+package = Package(resources=[
+Resource(name="ecological_data", path="biomass_sample.csv", schema=schema),
+])
 
-# Display the validation issues (if any)
-report.to_dict()  # Show detailed errors and warnings
+report = validate(package)
+print("Package valid?", report.valid)
+for row in report.flatten():
+print(row)
 ```
 **Output Example**:
-
 ```json
 {
     "valid": false,
