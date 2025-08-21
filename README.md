@@ -1,6 +1,6 @@
 ### 1. **Introduction to the Frictionless Framework**
 
-The **Frictionless Framework** offers open-source tools that help manage and ensure data quality. It’s ideal for use cases like **EnviDat**, where the integrity and reliability of data are critical for ecological research. It has been used successfully in repositories like the [Global Biodiversity Information Facility (GBIF)](https://www.gbif.org/) and [OpenAIRE](https://www.openaire.eu/) for data validation and quality control.
+The **Frictionless Framework** offers open-source tools that help manage and ensure data quality. It’s ideal for use cases like **EnviDat**, where the integrity and reliability of data are critical for ecological research. It has been used successfully in similar repositories like [DRYAD](https://blog.datadryad.org/2020/11/18/frictionless-data/) and the [Global Biodiversity Information Facility (GBIF)](https://data-blog.gbif.org/post/frictionless-data-and-darwin-core/) for data validation and quality control.
 
 
 
