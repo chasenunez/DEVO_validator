@@ -13,7 +13,6 @@ For **EnviDat**, quality assurance (QA) and control (QC) of uploaded ecological 
 ### 3. **How Frictionless Can Be Incorporated into WSL's Workflow**
 
 * **Researchers' Workflow**:
-
   * Use **[Open Data Editor](https://okfn.org/en/projects/open-data-editor/)** (GUI) to perform quality assurance (QA) checks before uploading datasets.
   * Researchers can view and fix errors interactively.
 
