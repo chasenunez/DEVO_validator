@@ -17,7 +17,7 @@ Frictionless provides a simple yet powerful **schema validation** tool, helping 
 
 * **Researchers' Workflow**:
 
-  * Use **Open Data Editor** (GUI) to perform quality assurance (QA) checks before uploading datasets.
+  * Use **[Open Data Editor](https://okfn.org/en/projects/open-data-editor/)** (GUI) to perform quality assurance (QA) checks before uploading datasets.
   * Researchers can view and fix errors interactively.
 
 * **IT Staff's Workflow**:
@@ -65,7 +65,7 @@ df.head()  # Displaying the first few rows of the dataset
 
 #### 5.1 **Using the Open Data Editor (GUI) for QA**:
 
-Researchers can use the **Open Data Editor** to interactively validate their datasets before uploading them to EnviDat. The Open Data Editor provides a graphical interface that checks data quality in real-time.
+Researchers can use the **[Open Data Editor](https://okfn.org/en/projects/open-data-editor/)** to interactively validate their datasets before uploading them to EnviDat. The Open Data Editor provides a graphical interface that checks data quality in real-time.
 
 * **What the Open Data Editor Can Catch**:
 
