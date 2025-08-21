@@ -109,7 +109,7 @@ schema = Schema(fields=[
     Field(name="sample_type", type="string", required=True)
 ])
 
-# Validate the dataset against the schema
+# Validate the dataset against the custom schema
 report = schema.validate(df)
 
 # Display the validation issues (if any)
