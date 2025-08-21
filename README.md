@@ -4,12 +4,12 @@ The **[Frictionless Framework](https://framework.frictionlessdata.io/)** offers 
 
 ### 2. **Big Picture: Why Frictionless for EnviDat?**
 
-For **EnviDat**, quality control (QC) of uploaded ecological datasets is essential. Frictionless:
+For **EnviDat**, quality assurance (QA) and control (QC) of uploaded ecological datasets is essential. Frictionless:
 
-* **Automates the Validation Process**: Ensures all incoming data fits the expected structure, types, and constraints.
-* **Catches Common Errors**: Missing values, incorrect types, or malformed columns.
-* **Improves Data Integrity**: Both on the researcher side (self-checks) and the backend (automated validation by IT staff).
 * **Flexibility**: Researchers can validate their own datasets using a graphical interface (Open Data Editor) while IT staff can run backend checks through Python scripts.
+* **Automates the Validation Process**: Ensures all incoming data fits the expected structure, types, and constraints prior to ingestion.
+* **Catches Common as well as Specific Errors**: Missing values, incorrect types, or malformed columns are standard, but common data error in ecological data can be added via a custom schema. 
+
 
 Frictionless provides a simple yet powerful **schema validation** tool, helping to standardize ecological datasets before they are ingested by EnviDat.
 
