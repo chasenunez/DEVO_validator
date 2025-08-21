@@ -136,6 +136,8 @@ custom_schema = Schema(fields=[
 custom_report = custom_schema.validate(df)
 custom_report.to_dict()
 ```
+If, after running the custom schema, there are still errors, the dataset can be sent back to the researchers for correction with the helpful output from frictionless. 
+
 ### 6. **How to Integrate Frictionless into the EnviDat Workflow**
 
 #### 6.1 **Step 1: Researchers Check Data Quality**
