@@ -136,8 +136,6 @@ custom_schema = Schema(fields=[
 custom_report = custom_schema.validate(df)
 custom_report.to_dict()
 ```
-If, after running the custom schema, there are still errors, the dataset can be sent back to the researchers for correction with the helpful output from frictionless. 
-
 ### 6. **How to Integrate Frictionless into the EnviDat Workflow**
 
 #### 6.1 **Step 1: Researchers Check Data Quality**
@@ -173,6 +171,8 @@ if package.valid:
 else:
     print("Data has errors:", package.errors)
 ```
+If, after running the custom schema, there are still errors, the dataset can be sent back to the researchers for correction with the helpful output from frictionless. 
+
 ### 7. **Conclusion**
 
 By implementing **Frictionless**, WSL can streamline data quality assurance and control for EnviDat, empowering both researchers and IT staff:
