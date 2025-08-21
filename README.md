@@ -95,18 +95,21 @@ Once the preliminary check has been done by the researchers, Scientific IT staff
 You can **extend the default schema** to suit your own data structure. For example, you can set custom ranges for numeric columns, specific formats for strings, and define additional validation rules (e.g., a specific regex pattern for site names).
 
 ```python
-from frictionless import Schema, Field
+from frictionless import Schema
 
-# Define the schema for the ecological dataset
-schema = Schema(fields=[
-    Field(name="Site.ID", type="integer", required=True),
-    Field(name="Biomasstype", type="string", allowed=["Living", "Litter"], required=True),
-    Field(name="Site", type="string", required=True),
-    Field(name="Invasion", type="string", allowed=["Native", "Invaded"], required=True),
-    Field(name="Treatment", type="string", allowed=["Open", "No livestock", "No mammals", "No insects"], required=True),
-    Field(name="Weight_20by100_cm", type="number", required=True),
-    Field(name="sample_type", type="string", required=True)
-])
+schema = Schema({
+"fields": [
+{"name": "Site.ID", "type": "integer", "constraints": {"required": True}},
+{"name": "Biomasstype", "type": "string", "constraints": {"required": True, "enum": ["Living", "Litter"]}},
+{"name": "Site", "type": "string", "constraints": {"required": True}},
+{"name": "Invasion", "type": "string", "constraints": {"required": True, "enum": ["Native", "Invaded"]}},
+{"name": "Treatment", "type": "string", "constraints": {"required": True, "enum": ["Open", "No livestock", "No mammals", "No insects"]}},
+{"name": "Weight_20by100_cm", "type": "number", "constraints": {"required": True, "minimum": 0}},
+{"name": "sample_type", "type": "string", "constraints": {"required": False}},
+],
+# Treat NA/empty as nulls for required/type checks
+"missingValues": ["", "NA"]
+})
 
 # Validate the dataset against the custom schema
 report = schema.validate(df)
