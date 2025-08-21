@@ -64,8 +64,6 @@ Researchers can use the **[Open Data Editor](https://okfn.org/en/projects/open-d
 
 Researchers can open their dataset, visualize errors, and directly modify them in the GUI. If a field has missing values, users can choose to replace them with the average or a specific value.
 
-[ADD GRAPHICS HERE OF THIS EXAMPLE IN GUI FIX MODE]
-
 #### 4.2 **Using Frictionless in Python for Backend Validation (QC)**:
 
 Once the preliminary check has been done by the researchers, Scientific IT staff can run a Python script (or work in the console) to validate datasets automatically before upload. This is done by defining a custom **schema** that specifies the expected structure and rules for the dataset.
