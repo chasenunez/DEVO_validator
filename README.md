@@ -145,8 +145,6 @@ custom_report = custom_schema.validate(df)
 custom_report.to_dict()
 ```
 
-
-
 ### 6. **How to Integrate Frictionless into the EnviDat Workflow**
 
 #### 6.1 **Step 1: Researchers Check Data Quality**
@@ -183,8 +181,6 @@ else:
     print("Data has errors:", package.errors)
 ```
 
-
-
 ### 7. **Conclusion**
 
 By implementing **Frictionless**, WSL can streamline data quality assurance and control for EnviDat, empowering both researchers and IT staff:
@@ -197,3 +193,8 @@ By implementing **Frictionless**, WSL can streamline data quality assurance and 
 * Set up Frictionless in the EnviDat environment.
 * Train researchers on how to use the Open Data Editor for self-checks.
 * Automate backend validation using Frictionless Python scripts to ensure the integrity of all uploaded data.
+
+**Online Resources**:
+
+* https://framework.frictionlessdata.io/index.html
+* https://colab.research.google.com/github/frictionlessdata/frictionless-py/blob/v4/site/docs/tutorials/notebooks/frictionless-RDM-workflows.ipynb#scrollTo=dc538394
