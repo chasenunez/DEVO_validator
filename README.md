@@ -27,7 +27,7 @@ Frictionless provides a simple yet powerful **schema validation** tool, helping 
 
 ### 4. **Example Dataset with Errors**
 
-Let’s use a **sample ecological dataset** common to EnviDat, but with intentional errors (missing values, blank headers, etc.):
+Let’s use a **subsample of a real ecological dataset** uploaded to EnviDat, but we will introduce some intentional errors (missing values, blank headers, blank rows, NA's, data type error, etc.):
 
 > _Fioratti, M., Cordero, I., Chinn, N., Firn, J., Holmes, J., Klein, M., Lebbink, G., Nielsen, U., Schütz, M., Zimmermann, S., Risch, A. C. (2025). Herbivory mediates the response of below-ground food-webs to invasive grasses. EnviDat. https://www.doi.org/10.16904/envidat.677._
 
@@ -46,8 +46,9 @@ Site.ID,Biomasstype,Site,Invasion,Treatment,Weight_20by100_cm,sample_type
 2,Litter,PnK,Native,No livestock,39.14
 2,Living,PnK,,No livestock,177.355
 3,Litter,PnK,Native,No mammals,38.95
-3,Living,PnK,Native,No mammals,117.16
+error,Living,PnK,Native,No mammals,117.16
 ,,,,,
+,,,,,,red
 9,Litter,Vivan,Native,Open,NA
 9,Living,Vivan,Native,Open,86.74
 10,Litter,Vivan,Native,No livestock,79.08
