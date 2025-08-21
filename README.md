@@ -12,9 +12,9 @@ For **EnviDat**, quality assurance (QA) and control (QC) of uploaded ecological 
 
 ### 3. **Example Dataset with Errors**
 
-Let’s take a look at a **subsample of a real ecological dataset** uploaded to EnviDat (Biomass), but we will introduce some intentional errors (missing values, blank headers, blank rows, NA's, data type error, etc.).
+Let’s take a look at a **subsample of a real biomass dataset** uploaded to EnviDat, but we will introduce some intentional errors (missing values, blank headers, blank rows, NA's, data type error, etc.).
 
-Original data have no errors, and come from _"Herbivory mediates the response of below-ground food-webs to invasive grasses"_, published in the _Journal of Animal Ecology_.
+Original data (with no errors) come from _"Herbivory mediates the response of below-ground food-webs to invasive grasses"_, published in the _Journal of Animal Ecology_.
 > _Fioratti, M., Cordero, I., Chinn, N., Firn, J., Holmes, J., Klein, M., Lebbink, G., Nielsen, U., Schütz, M., Zimmermann, S., Risch, A. C. (2025). Herbivory mediates the response of below-ground food-webs to invasive grasses. EnviDat. https://www.doi.org/10.16904/envidat.677._
 
 ```python
