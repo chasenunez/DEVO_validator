@@ -107,14 +107,191 @@ print(report.valid)
 ```
 **Output Example**:
 ```json
-{
-    "valid": false,
-    "errors": [
-        {"field": "Treatment", "message": "Value missing in row 2."},
-        {"field": "Weight_20by100_cm", "message": "Value 'NA' is invalid."},
-        {"field": "Site", "message": "Empty value detected in row 6."}
-    ]
-}
+{'valid': False,
+ 'stats': {'tasks': 1, 'errors': 10, 'warnings': 0, 'seconds': 0.025},
+ 'warnings': [],
+ 'errors': [],
+ 'tasks': [{'name': 'biomass_sample',
+            'type': 'table',
+            'valid': False,
+            'place': 'biomass_sample.csv',
+            'labels': ['Site.ID',
+                       'Biomasstype',
+                       'Site',
+                       'Invasion',
+                       'Treatment',
+                       'Weight_20by100_cm',
+                       'sample_type'],
+            'stats': {'errors': 10,
+                      'warnings': 0,
+                      'seconds': 0.025,
+                      'md5': 'db2b1002484257d4cd39d5d3dd642178',
+                      'sha256': 'f3ed66bb58831f187b6d4da8468ac5647cff259f18667abfea9381122663a351',
+                      'bytes': 549,
+                      'fields': 7,
+                      'rows': 14},
+            'warnings': [],
+            'errors': [{'type': 'constraint-error',
+                        'title': 'Constraint Error',
+                        'description': 'A field value does not conform to a '
+                                       'constraint.',
+                        'message': 'The cell "" in row at position "5" and '
+                                   'field "Invasion" at position "4" does not '
+                                   'conform to a constraint: constraint '
+                                   '"required" is "True"',
+                        'tags': ['#table', '#row', '#cell'],
+                        'note': 'constraint "required" is "True"',
+                        'cells': ['2',
+                                  'Living',
+                                  'PnK',
+                                  '',
+                                  'No livestock',
+                                  '177.355',
+                                  ''],
+                        'rowNumber': 5,
+                        'cell': '',
+                        'fieldName': 'Invasion',
+                        'fieldNumber': 4},
+                       {'type': 'type-error',
+                        'title': 'Type Error',
+                        'description': 'The value does not match the schema '
+                                       'type and format for this field.',
+                        'message': 'Type error in the cell "error" in row "7" '
+                                   'and field "Site.ID" at position "1": type '
+                                   'is "integer/default"',
+                        'tags': ['#table', '#row', '#cell'],
+                        'note': 'type is "integer/default"',
+                        'cells': ['error',
+                                  'Living',
+                                  'PnK',
+                                  'Native',
+                                  'No mammals',
+                                  '117.16',
+                                  ''],
+                        'rowNumber': 7,
+                        'cell': 'error',
+                        'fieldName': 'Site.ID',
+                        'fieldNumber': 1},
+                       {'type': 'blank-row',
+                        'title': 'Blank Row',
+                        'description': 'This row is empty. A row should '
+                                       'contain at least one value.',
+                        'message': 'Row at position "8" is completely blank',
+                        'tags': ['#table', '#row'],
+                        'note': '',
+                        'cells': ['', '', '', '', '', '', ''],
+                        'rowNumber': 8},
+                       {'type': 'constraint-error',
+                        'title': 'Constraint Error',
+                        'description': 'A field value does not conform to a '
+                                       'constraint.',
+                        'message': 'The cell "" in row at position "9" and '
+                                   'field "Site.ID" at position "1" does not '
+                                   'conform to a constraint: constraint '
+                                   '"required" is "True"',
+                        'tags': ['#table', '#row', '#cell'],
+                        'note': 'constraint "required" is "True"',
+                        'cells': ['', '', '', '', '', '', 'red'],
+                        'rowNumber': 9,
+                        'cell': '',
+                        'fieldName': 'Site.ID',
+                        'fieldNumber': 1},
+                       {'type': 'constraint-error',
+                        'title': 'Constraint Error',
+                        'description': 'A field value does not conform to a '
+                                       'constraint.',
+                        'message': 'The cell "" in row at position "9" and '
+                                   'field "Biomasstype" at position "2" does '
+                                   'not conform to a constraint: constraint '
+                                   '"required" is "True"',
+                        'tags': ['#table', '#row', '#cell'],
+                        'note': 'constraint "required" is "True"',
+                        'cells': ['', '', '', '', '', '', 'red'],
+                        'rowNumber': 9,
+                        'cell': '',
+                        'fieldName': 'Biomasstype',
+                        'fieldNumber': 2},
+                       {'type': 'constraint-error',
+                        'title': 'Constraint Error',
+                        'description': 'A field value does not conform to a '
+                                       'constraint.',
+                        'message': 'The cell "" in row at position "9" and '
+                                   'field "Site" at position "3" does not '
+                                   'conform to a constraint: constraint '
+                                   '"required" is "True"',
+                        'tags': ['#table', '#row', '#cell'],
+                        'note': 'constraint "required" is "True"',
+                        'cells': ['', '', '', '', '', '', 'red'],
+                        'rowNumber': 9,
+                        'cell': '',
+                        'fieldName': 'Site',
+                        'fieldNumber': 3},
+                       {'type': 'constraint-error',
+                        'title': 'Constraint Error',
+                        'description': 'A field value does not conform to a '
+                                       'constraint.',
+                        'message': 'The cell "" in row at position "9" and '
+                                   'field "Invasion" at position "4" does not '
+                                   'conform to a constraint: constraint '
+                                   '"required" is "True"',
+                        'tags': ['#table', '#row', '#cell'],
+                        'note': 'constraint "required" is "True"',
+                        'cells': ['', '', '', '', '', '', 'red'],
+                        'rowNumber': 9,
+                        'cell': '',
+                        'fieldName': 'Invasion',
+                        'fieldNumber': 4},
+                       {'type': 'constraint-error',
+                        'title': 'Constraint Error',
+                        'description': 'A field value does not conform to a '
+                                       'constraint.',
+                        'message': 'The cell "" in row at position "9" and '
+                                   'field "Treatment" at position "5" does not '
+                                   'conform to a constraint: constraint '
+                                   '"required" is "True"',
+                        'tags': ['#table', '#row', '#cell'],
+                        'note': 'constraint "required" is "True"',
+                        'cells': ['', '', '', '', '', '', 'red'],
+                        'rowNumber': 9,
+                        'cell': '',
+                        'fieldName': 'Treatment',
+                        'fieldNumber': 5},
+                       {'type': 'constraint-error',
+                        'title': 'Constraint Error',
+                        'description': 'A field value does not conform to a '
+                                       'constraint.',
+                        'message': 'The cell "" in row at position "9" and '
+                                   'field "Weight_20by100_cm" at position "6" '
+                                   'does not conform to a constraint: '
+                                   'constraint "required" is "True"',
+                        'tags': ['#table', '#row', '#cell'],
+                        'note': 'constraint "required" is "True"',
+                        'cells': ['', '', '', '', '', '', 'red'],
+                        'rowNumber': 9,
+                        'cell': '',
+                        'fieldName': 'Weight_20by100_cm',
+                        'fieldNumber': 6},
+                       {'type': 'constraint-error',
+                        'title': 'Constraint Error',
+                        'description': 'A field value does not conform to a '
+                                       'constraint.',
+                        'message': 'The cell "NA" in row at position "10" and '
+                                   'field "Weight_20by100_cm" at position "6" '
+                                   'does not conform to a constraint: '
+                                   'constraint "required" is "True"',
+                        'tags': ['#table', '#row', '#cell'],
+                        'note': 'constraint "required" is "True"',
+                        'cells': ['9',
+                                  'Litter',
+                                  'Vivan',
+                                  'Native',
+                                  'Open',
+                                  'NA',
+                                  ''],
+                        'rowNumber': 10,
+                        'cell': 'NA',
+                        'fieldName': 'Weight_20by100_cm',
+                        'fieldNumber': 6}]}]}
 ```
 ### 5. **How to Integrate Frictionless into the EnviDat Workflow**
 
