@@ -20,6 +20,7 @@ Original data (with no errors) come from _"Herbivory mediates the response of be
 ```python
 import pandas as pd
 from pathlib import Path
+from io import StringIO
 
 csv_text = """
 Site.ID,Biomasstype,Site,Invasion,Treatment,Weight_20by100_cm,sample_type
@@ -41,10 +42,10 @@ error,Living,PnK,Native,No mammals,117.16,
 
 Path("biomass_sample.csv").write_text(csv_text, encoding="utf-8")
 print("Wrote biomass_sample.csv")
-"""
+
 
 # Load the dataset into pandas DataFrame
-df = pd.read_csv(StringIO(data))
+df = pd.read_csv(StringIO(csv_text))
 df.head()  # Displaying the first few rows of the dataset
 ```
 ### 4. **Step-by-Step: How Frictionless Helps QC and QA**
