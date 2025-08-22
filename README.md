@@ -86,7 +86,7 @@ Once the preliminary check has been done by the researchers, Scientific IT staff
 You can **extend the default schema** to suit your own data structure. For example, you can set custom ranges for numeric columns, specific formats for strings, and define additional validation rules (e.g., a specific regex pattern for site names).
 
 ```python
-ffrom frictionless import Schema
+from frictionless import Schema, Resource, validate
 
 schema = Schema({
 "fields": [
@@ -100,25 +100,10 @@ schema = Schema({
 ],
 "missingValues": ["", "NA"]
 })
-```
-```python
-from frictionless import Resource, validate
 
 resource = Resource(path="biomass_sample.csv", schema=schema)
 report = validate(resource)
 print(report.valid)
-```
-Multi-table validation:
-```python
-from frictionless import Package, Resource, validate
-package = Package(resources=[
-Resource(name="ecological_data", path="biomass_sample.csv", schema=schema),
-])
-
-report = validate(package)
-print("Package valid?", report.valid)
-for row in report.flatten():
-print(row)
 ```
 **Output Example**:
 ```json
