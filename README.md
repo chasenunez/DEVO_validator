@@ -118,17 +118,9 @@ print(report.valid)
 ```
 ### 5. **How to Integrate Frictionless into the EnviDat Workflow**
 
-#### 5.1 **Step 1: Researchers Check Data Quality**
+#### 5.1 **Step 2: IT Staff Backend Validation**
 
-* **Open Data Editor**: Researchers use the Open Data Editor to visually check their datasets. They can:
-
-  * View validation errors.
-  * Fix issues like missing values or incorrect data types.
-  * Download the validated dataset.
-
-#### 5.2 **Step 2: IT Staff Backend Validation**
-
-* **Automated Validation**: Once the dataset is uploaded, IT staff can run a backend Python script using Frictionless to validate the data before it's stored in EnviDat.
+* **Automated Validation**: Once the dataset is uploaded, IT staff can run a backend Python script using Frictionless to validate the data before it's stored in EnviDat. This could use one official EnviDat schema, or could be a collection of schema depending on the data type. 
 
   * The script can be integrated into the EnviDat upload process.
 
