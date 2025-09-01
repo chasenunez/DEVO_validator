@@ -1,11 +1,25 @@
-# iCSV 1.0 UTF-8
+# iCSV 1.0 UTF-8 2DTIMESERIES
 # [METADATA]
-# field_delimiter = :
-# geometry = POINT(7.1 46.2)
-# srid = EPSG:4326
+# field_delimiter = |
+# geometry = POINTZ(781957.771521 185571.662370 1556.700000)
+# nodata = -999.000000
+# srid = EPSG:21781
+# source = ExampleModel v1.0.0
 # [FIELDS]
-# fields = T:RH:P
+# fields = layer_index|T|SSA|RHO
+# add_offset    = 0|0|0|0|0|0|0|0|0|0
 # [DATA]
-15.3:60:1013
-14.8:62:1012
-16.1:59:1014
+# [DATE=2005-08-23T15:30:00]
+6|273.15|-999|-999
+5|-999|35|250
+4|-999|36|280
+3|-999|37|300
+2|-999|37|300
+1|-999|37|300
+# [DATE=2005-08-23T16:00:00]
+6|274.15|-999|-999
+5|-999|35.5|280
+4|-999|37|290
+3|-999|37|300
+2|-999|37|300
+1|-999|37|300
