@@ -1,5 +1,4 @@
-"this code has been deprecated and moved into the NEAD_Validator
-"
+"this code has been deprecated and moved into the NEAD_Validator"
 import re
 import csv
 import json
