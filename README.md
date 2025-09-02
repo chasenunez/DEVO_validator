@@ -297,7 +297,7 @@ print(report.valid)
 
 #### 5.1 **Step 2: IT Staff Backend Validation**
 
-* **Automated Validation**: Once the dataset is uploaded, IT staff can run a backend Python script using Frictionless to validate the data before it's stored in EnviDat. This could use one official EnviDat schema, or could be a collection of schema depending on the data type. 
+* **Automated Validation**: Once the dataset is uploaded, a Python script using Frictionless to validate the data before it's stored in EnviDat. This could use one official EnviDat schema, or could be a collection of schema depending on the data type. 
 
   * The script can be integrated into the EnviDat upload process.
 
@@ -321,6 +321,8 @@ else:
     print("Data has errors:", package.errors)
 ```
 If, after running the custom schema, there are still errors, the dataset can be sent back to the researchers for correction with the helpful output from frictionless. 
+
+
 
 ### 7. **Conclusion**
 
