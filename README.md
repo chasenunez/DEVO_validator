@@ -322,7 +322,7 @@ else:
 ```
 If, after running the custom schema, there are still errors, the dataset can be sent back to the researchers for correction with the helpful output from frictionless. 
 
-
+#### 6.  **automated cracking of iCSV/NEAD files**: since WSL is pioneering self-documented CSV's, we can take advantage of the extra information in an automated process
 
 ### 7. **Conclusion**
 
