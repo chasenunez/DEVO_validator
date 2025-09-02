@@ -322,8 +322,9 @@ else:
 ```
 If, after running the custom schema, there are still errors, the dataset can be sent back to the researchers for correction with the helpful output from frictionless. 
 
-#### 6.  **automated cracking of iCSV/NEAD files**: since WSL is pioneering self-documented CSV's, we can take advantage of the extra information in an automated process
-
+#### 6.  **automated cracking of iCSV/NEAD files**: since WSL is pioneering self-documented CSV's, we can take advantage of the extra information in an automated process that:
+a. ingets a self-documented CSV like an iCSV or NEAD CSV, and break it into its [METADATA] and [DATA] section. 
+b. the program will use the metadata standards set out by [EnviDat]{https://www.envidat.ch/data-api/gcnet/#details_metadata}
 ### 7. **Conclusion**
 
 By implementing **Frictionless**, WSL can streamline data quality assurance and control for EnviDat, empowering both researchers and IT staff:
