@@ -333,7 +333,6 @@ By implementing **Frictionless**, WSL can streamline data quality assurance and 
 
 * Set up Frictionless in the EnviDat environment.
 * Train researchers on how to use the Open Data Editor for self-checks.
-* Automate backend validation using Frictionless Python scripts to ensure the integrity of all uploaded data.
 
 **Online Resources**:
 
