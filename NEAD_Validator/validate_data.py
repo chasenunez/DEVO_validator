@@ -38,7 +38,7 @@ def main():
 
         with open(outpath, "w", encoding="utf-8") as f:
             if report.valid:
-                f.write("Data validation OK ✅\n")
+                f.write("Data validation [OK]\n")
             else:
                 f.write("Data validation errors:\n")
                 for rownum, fieldnum, code, message in report.flatten(["rowNumber", "fieldNumber", "code", "message"]):

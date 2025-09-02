@@ -23,7 +23,7 @@ def run_step(script, infile):
         print(result.stdout)
         print(result.stderr)
         return False
-    print(f"✅ {script} succeeded on {infile}")
+    print(f"[OK] {script} succeeded on {infile}")
     return True
 
 def main():
@@ -35,7 +35,7 @@ def main():
 
     for infile in sys.argv[1:]:
         if not Path(infile).exists():
-            print(f"⚠️  Skipping {infile}: file not found")
+            print(f"[ ! ]  Skipping {infile}: file not found")
             continue
 
         print("\n===============================")
