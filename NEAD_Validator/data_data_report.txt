@@ -1,0 +1,30 @@
+Data validation errors:
+  Row ? Col 1 [None]: Label "2005-08-23T15:30:00" in field timestamp at position "1" does not match the field name in the schema
+  Row ? Col 2 [None]: Label "-999" in field DW at position "2" does not match the field name in the schema
+  Row ? Col 3 [None]: Label "50" in field ISWR at position "3" does not match the field name in the schema
+  Row ? Col 4 [None]: Label "83700" in field P at position "4" does not match the field name in the schema
+  Row ? Col 5 [None]: Label "0" in field PSUM at position "5" does not match the field name in the schema
+  Row ? Col 6 [None]: Label "0.889" in field RH at position "6" does not match the field name in the schema
+  Row ? Col 7 [None]: Label "281.94" in field TA at position "7" does not match the field name in the schema
+  Row ? Col 8 [None]: Label "1.5" in field VW_U at position "8" does not match the field name in the schema
+  Row ? Col 9 [None]: Label "-999" in the header at position "9" is duplicated to a label: at position "2"
+  Row ? Col 10 [None]: Label "2.8" in field VW_M at position "10" does not match the field name in the schema
+  Row 2 Col 7 [None]: The cell "282.05" in row at position "2" and field "TA" at position "7" does not conform to a constraint: constraint "maximum" is "60"
+  Row 3 Col 7 [None]: The cell "281.76" in row at position "3" and field "TA" at position "7" does not conform to a constraint: constraint "maximum" is "60"
+  Row 4 Col 7 [None]: The cell "281.7" in row at position "4" and field "TA" at position "7" does not conform to a constraint: constraint "maximum" is "60"
+  Row 5 Col 7 [None]: The cell "281.52" in row at position "5" and field "TA" at position "7" does not conform to a constraint: constraint "maximum" is "60"
+  Row 6 Col 7 [None]: The cell "281.31" in row at position "6" and field "TA" at position "7" does not conform to a constraint: constraint "maximum" is "60"
+  Row 7 Col 7 [None]: The cell "281.12" in row at position "7" and field "TA" at position "7" does not conform to a constraint: constraint "maximum" is "60"
+  Row 8 Col 7 [None]: The cell "280.99" in row at position "8" and field "TA" at position "7" does not conform to a constraint: constraint "maximum" is "60"
+  Row 9 Col 7 [None]: The cell "280.85" in row at position "9" and field "TA" at position "7" does not conform to a constraint: constraint "maximum" is "60"
+  Row 10 Col 7 [None]: The cell "279.81" in row at position "10" and field "TA" at position "7" does not conform to a constraint: constraint "maximum" is "60"
+  Row 11 Col 7 [None]: The cell "279.3" in row at position "11" and field "TA" at position "7" does not conform to a constraint: constraint "maximum" is "60"
+  Row 12 Col 7 [None]: The cell "278.73" in row at position "12" and field "TA" at position "7" does not conform to a constraint: constraint "maximum" is "60"
+  Row 13 Col 7 [None]: The cell "278.51" in row at position "13" and field "TA" at position "7" does not conform to a constraint: constraint "maximum" is "60"
+  Row 14 Col 7 [None]: The cell "277.88" in row at position "14" and field "TA" at position "7" does not conform to a constraint: constraint "maximum" is "60"
+  Row 15 Col 7 [None]: The cell "277.58" in row at position "15" and field "TA" at position "7" does not conform to a constraint: constraint "maximum" is "60"
+  Row 16 Col 7 [None]: The cell "277.1" in row at position "16" and field "TA" at position "7" does not conform to a constraint: constraint "maximum" is "60"
+  Row 17 Col 7 [None]: The cell "278.34" in row at position "17" and field "TA" at position "7" does not conform to a constraint: constraint "maximum" is "60"
+  Row 18 Col 7 [None]: The cell "281.08" in row at position "18" and field "TA" at position "7" does not conform to a constraint: constraint "maximum" is "60"
+  Row 19 Col 7 [None]: The cell "283.63" in row at position "19" and field "TA" at position "7" does not conform to a constraint: constraint "maximum" is "60"
+  Row 20 Col 7 [None]: The cell "286.25" in row at position "20" and field "TA" at position "7" does not conform to a constraint: constraint "maximum" is "60"
