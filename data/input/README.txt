@@ -1,4 +1,4 @@
-Data Citation
+'Biomass_sample.csv' Data Citation:
 Fioratti, M., Cordero, I., Chinn, N., Firn, J., Holmes, J., Klein, M., Lebbink, G., Nielsen, U., Schütz, M., Zimmermann, S., Risch, A. C. (2025). Herbivory mediates the response of below-ground food-webs to invasive grasses. EnviDat. https://www.doi.org/10.16904/envidat.677.
 
 Dataset supporting the paper "Herbivory mediates the response of below-ground food-webs to invasive grasses", published in the Journal of Animal Ecology.
