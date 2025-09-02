@@ -1,0 +1,70 @@
+{
+  "fields": [
+    {
+      "name": "timestamp",
+      "type": "datetime",
+      "description": "timestamp_iso",
+      "constraints": {
+        "required": true
+      },
+      "format": "any"
+    },
+    {
+      "name": "DW",
+      "type": "string",
+      "description": "wind_direction"
+    },
+    {
+      "name": "ISWR",
+      "type": "integer",
+      "description": "short_wave_incoming_radiation"
+    },
+    {
+      "name": "P",
+      "type": "integer",
+      "description": "atmospheric_pressure"
+    },
+    {
+      "name": "PSUM",
+      "type": "integer",
+      "description": "total_precipitation"
+    },
+    {
+      "name": "RH",
+      "type": "number",
+      "description": "relative_humidity",
+      "constraints": {
+        "minimum": 0,
+        "maximum": 1
+      }
+    },
+    {
+      "name": "TA",
+      "type": "number",
+      "description": "air_temperature",
+      "constraints": {
+        "minimum": -100,
+        "maximum": 60
+      }
+    },
+    {
+      "name": "VW_U",
+      "type": "number",
+      "description": "wind_speed_u_component"
+    },
+    {
+      "name": "VW_V",
+      "type": "string",
+      "description": "wind_speed_v_component"
+    },
+    {
+      "name": "VW_M",
+      "type": "number",
+      "description": "wind_speed_maximum"
+    }
+  ],
+  "missingValues": [
+    "-999",
+    "-999.000000"
+  ]
+}
