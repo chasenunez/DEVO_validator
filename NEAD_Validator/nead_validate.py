@@ -1,10 +1,21 @@
 #!/usr/bin/env python3
 """
 nead_validate.py: Wrapper to run full NEAD/iCSV validation pipeline
-on one or more input files.
+on one or more input files. 
+
+This wrapper is mostly just a convenient way to do everything all at once.
+It pulls from 3 scripts that need to be in the same directory:
+check_metadata.py
+create_schema.py
+validate_data.py
 
 Usage:
     python3 nead_validate.py file1.icsv file2.icsv ...
+
+it produces:
+metadata_report.txt
+data_schema.json
+data_data_report.txt
 """
 
 import sys
