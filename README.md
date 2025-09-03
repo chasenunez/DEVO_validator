@@ -1,10 +1,10 @@
 ### 1. **Introduction to the Frictionless Framework**
 
-The **[Frictionless Framework](https://framework.frictionlessdata.io/)** offers [open-source tools](https://github.com/frictionlessdata) that help manage and ensure data quality. It’s ideal for use cases like **[EnviDat](https://www.envidat.ch/#/)**, where the integrity and reliability of data are critical for [long term storage and reuse](https://www.dora.lib4ri.ch/wsl/islandora/object/wsl:18703). It has been used successfully in similar repositories like [DRYAD](https://blog.datadryad.org/2020/11/18/frictionless-data/) and the [Global Biodiversity Information Facility (GBIF)](https://data-blog.gbif.org/post/frictionless-data-and-darwin-core/) for data validation and quality control.
+The **[Frictionless Framework](https://framework.frictionlessdata.io/)** offers [open-source tools](https://github.com/frictionlessdata) that help manage and ensure data quality. It’s ideal for use cases like **[EnviDat](https://www.envidat.ch/#/)**, where the integrity and reliability of metadata and data are critical for [long term storage and reuse](https://www.dora.lib4ri.ch/wsl/islandora/object/wsl:18703). It has been used successfully in similar repositories like [DRYAD](https://blog.datadryad.org/2020/11/18/frictionless-data/) and the [Global Biodiversity Information Facility (GBIF)](https://data-blog.gbif.org/post/frictionless-data-and-darwin-core/) for data validation and quality control.
 
 ### 2. **Big Picture: Why Frictionless for EnviDat?**
 
-For **EnviDat**, quality assurance (QA) and control (QC) of uploaded ecological datasets is essential. Frictionless offers:
+For **EnviDat**, quality assurance (QA) and control (QC) of uploaded ecological datasets and their metadata is essential. Frictionless offers:
 
 * **Flexibility**: Researchers can validate their own datasets using a graphical interface (**[Open Data Editor](https://okfn.org/en/projects/open-data-editor/)**) while SciIT staff can run backend checks through Python scripts.
 * **Automates the Validation Process**: Ensures all incoming data fits the expected structure, types, and constraints prior to ingestion while freeing up staff for more complex tasks. 
@@ -172,36 +172,9 @@ print(report.valid)
                                 ...
 
 ```
-### 5. **How to Integrate Frictionless into the EnviDat Workflow**
+### 5. **An Idea For How to Integrate Frictionless into the EnviDat Workflow**
 
-#### 5.1 **Step 2: IT Staff Backend Validation**
-
-* **Automated Validation**: Once the dataset is uploaded, a Python script using Frictionless to validate the data before it's stored in EnviDat. This could use one official EnviDat schema, or could be a collection of schema depending on the data type. 
-
-  * The script can be integrated into the EnviDat upload process.
-
-```python
-from frictionless import Package
-
-# Create a validation package for uploaded dataset
-package = Package(resources=[{
-    'name': 'ecological_data',
-    'path': 'uploaded_data.csv',
-    'schema': schema
-}])
-
-# Validate the package
-package.validate()
-
-# If valid, allow upload; if not, flag for corrections
-if package.valid:
-    print("Data is valid, ready to upload.")
-else:
-    print("Data has errors:", package.errors)
-```
-If, after running the custom schema, there are still errors, the dataset can be sent back to the researchers for correction with the helpful output from frictionless. 
-
-#### 6. NEAD Validator Overview
+#### NEAD Validator Overview
 
 The **NEAD Validator** leverages the **Frictionless Framework** and **Python** to automatically ingest, validate, and report issues with metadata and data in CSV files. The tool ensures that metadata adheres to standards set by EnviDat and validates the data for completeness and compatibility using a schema.
 
@@ -229,17 +202,12 @@ The **NEAD Validator** leverages the **Frictionless Framework** and **Python** t
 * **Schema-Driven Validation**: Leverages a generated schema for data validation, ensuring consistency with expected structures.
 * **Clear Error Reporting**: Provides detailed, actionable error messages for easy debugging.
 
-### 7. **Conclusion**
+### 6. **Conclusion**
 
 By implementing **Frictionless**, WSL can streamline data quality assurance and control for EnviDat, empowering both researchers and IT staff:
 
 * **Researchers**: Validate their datasets via the Open Data Editor, making corrections before upload.
 * **IT Staff**: Automate backend validation with Python scripts to ensure that all incoming data complies with predefined quality standards.
-
-**Next Steps**:
-
-* Set up Frictionless in the EnviDat environment.
-* Train researchers on how to use the Open Data Editor for self-checks.
 
 **Online Resources**:
 
