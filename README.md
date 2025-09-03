@@ -168,130 +168,9 @@ print(report.valid)
                                   'No mammals',
                                   '117.16',
                                   ''],
-                        'rowNumber': 7,
-                        'cell': 'error',
-                        'fieldName': 'Site.ID',
-                        'fieldNumber': 1},
-                       {'type': 'blank-row',
-                        'title': 'Blank Row',
-                        'description': 'This row is empty. A row should '
-                                       'contain at least one value.',
-                        'message': 'Row at position "8" is completely blank',
-                        'tags': ['#table', '#row'],
-                        'note': '',
-                        'cells': ['', '', '', '', '', '', ''],
-                        'rowNumber': 8},
-                       {'type': 'constraint-error',
-                        'title': 'Constraint Error',
-                        'description': 'A field value does not conform to a '
-                                       'constraint.',
-                        'message': 'The cell "" in row at position "9" and '
-                                   'field "Site.ID" at position "1" does not '
-                                   'conform to a constraint: constraint '
-                                   '"required" is "True"',
-                        'tags': ['#table', '#row', '#cell'],
-                        'note': 'constraint "required" is "True"',
-                        'cells': ['', '', '', '', '', '', 'red'],
-                        'rowNumber': 9,
-                        'cell': '',
-                        'fieldName': 'Site.ID',
-                        'fieldNumber': 1},
-                       {'type': 'constraint-error',
-                        'title': 'Constraint Error',
-                        'description': 'A field value does not conform to a '
-                                       'constraint.',
-                        'message': 'The cell "" in row at position "9" and '
-                                   'field "Biomasstype" at position "2" does '
-                                   'not conform to a constraint: constraint '
-                                   '"required" is "True"',
-                        'tags': ['#table', '#row', '#cell'],
-                        'note': 'constraint "required" is "True"',
-                        'cells': ['', '', '', '', '', '', 'red'],
-                        'rowNumber': 9,
-                        'cell': '',
-                        'fieldName': 'Biomasstype',
-                        'fieldNumber': 2},
-                       {'type': 'constraint-error',
-                        'title': 'Constraint Error',
-                        'description': 'A field value does not conform to a '
-                                       'constraint.',
-                        'message': 'The cell "" in row at position "9" and '
-                                   'field "Site" at position "3" does not '
-                                   'conform to a constraint: constraint '
-                                   '"required" is "True"',
-                        'tags': ['#table', '#row', '#cell'],
-                        'note': 'constraint "required" is "True"',
-                        'cells': ['', '', '', '', '', '', 'red'],
-                        'rowNumber': 9,
-                        'cell': '',
-                        'fieldName': 'Site',
-                        'fieldNumber': 3},
-                       {'type': 'constraint-error',
-                        'title': 'Constraint Error',
-                        'description': 'A field value does not conform to a '
-                                       'constraint.',
-                        'message': 'The cell "" in row at position "9" and '
-                                   'field "Invasion" at position "4" does not '
-                                   'conform to a constraint: constraint '
-                                   '"required" is "True"',
-                        'tags': ['#table', '#row', '#cell'],
-                        'note': 'constraint "required" is "True"',
-                        'cells': ['', '', '', '', '', '', 'red'],
-                        'rowNumber': 9,
-                        'cell': '',
-                        'fieldName': 'Invasion',
-                        'fieldNumber': 4},
-                       {'type': 'constraint-error',
-                        'title': 'Constraint Error',
-                        'description': 'A field value does not conform to a '
-                                       'constraint.',
-                        'message': 'The cell "" in row at position "9" and '
-                                   'field "Treatment" at position "5" does not '
-                                   'conform to a constraint: constraint '
-                                   '"required" is "True"',
-                        'tags': ['#table', '#row', '#cell'],
-                        'note': 'constraint "required" is "True"',
-                        'cells': ['', '', '', '', '', '', 'red'],
-                        'rowNumber': 9,
-                        'cell': '',
-                        'fieldName': 'Treatment',
-                        'fieldNumber': 5},
-                       {'type': 'constraint-error',
-                        'title': 'Constraint Error',
-                        'description': 'A field value does not conform to a '
-                                       'constraint.',
-                        'message': 'The cell "" in row at position "9" and '
-                                   'field "Weight_20by100_cm" at position "6" '
-                                   'does not conform to a constraint: '
-                                   'constraint "required" is "True"',
-                        'tags': ['#table', '#row', '#cell'],
-                        'note': 'constraint "required" is "True"',
-                        'cells': ['', '', '', '', '', '', 'red'],
-                        'rowNumber': 9,
-                        'cell': '',
-                        'fieldName': 'Weight_20by100_cm',
-                        'fieldNumber': 6},
-                       {'type': 'constraint-error',
-                        'title': 'Constraint Error',
-                        'description': 'A field value does not conform to a '
-                                       'constraint.',
-                        'message': 'The cell "NA" in row at position "10" and '
-                                   'field "Weight_20by100_cm" at position "6" '
-                                   'does not conform to a constraint: '
-                                   'constraint "required" is "True"',
-                        'tags': ['#table', '#row', '#cell'],
-                        'note': 'constraint "required" is "True"',
-                        'cells': ['9',
-                                  'Litter',
-                                  'Vivan',
-                                  'Native',
-                                  'Open',
-                                  'NA',
-                                  ''],
-                        'rowNumber': 10,
-                        'cell': 'NA',
-                        'fieldName': 'Weight_20by100_cm',
-                        'fieldNumber': 6}]}]}
+
+                                ...
+
 ```
 ### 5. **How to Integrate Frictionless into the EnviDat Workflow**
 
@@ -323,10 +202,34 @@ else:
 If, after running the custom schema, there are still errors, the dataset can be sent back to the researchers for correction with the helpful output from frictionless. 
 
 #### 6.  **automated cracking of iCSV/NEAD files**: since WSL is pioneering self-documented CSV's, we can take advantage of the extra information in an automated process that:
-a. ingets a self-documented CSV like an iCSV or NEAD CSV, and break it into its [METADATA] and [DATA] section. 
-b. the program will use the metadata standards set out by [EnviDat](https://www.envidat.ch/data-api/gcnet/#details_metadata) in order to check the submitted Metadata, checking for completeness and correctness. 
-c. with the constructed schema.json, we can then use the frictionless framework to check the data against the schema for completeness, as well as compatability with the expected values. 
-d. there should then be machine readable error reporting that can use the functionality of frictionless to create a clear guide for what needs to be fixed by the reearcher. 
+
+### NEAD Validator Overview
+
+The **NEAD Validator** leverages the **Frictionless Framework** and **Python** to automatically ingest, validate, and report issues with metadata and data in CSV files. The tool ensures that metadata adheres to standards set by EnviDat and validates the data for completeness and compatibility using a schema.
+
+#### How It Works:
+
+1. **Metadata and Data Separation**:
+   The tool automatically ingests self-documented CSV files (such as iCSV or NEAD CSV formats). It then separates the content into two main sections: **\[METADATA]** and **\[DATA]**.
+
+2. **Metadata Validation**:
+   The metadata extracted from the file is validated against the standards outlined by [EnviDat](https://www.envidat.ch/data-api/gcnet/#details_metadata). The program checks for completeness, correctness, and conformity to required metadata fields.
+
+3. **Schema Construction**:
+   Using the validated metadata, the program constructs a `schema.json` that describes the expected structure, format, and data types for the dataset.
+
+4. **Data Validation**:
+   The Frictionless Framework is used to validate the actual data against the constructed schema. This ensures the data meets the expected structure, is complete, and matches predefined value formats.
+
+5. **Machine-Readable Error Reporting**:
+   If any issues are found during validation, the program generates machine-readable error reports. These reports are designed to clearly indicate what needs to be fixed, providing the researcher with actionable feedback to improve the dataset’s quality.
+
+#### Features:
+
+* **Automatic Metadata Extraction**: Handles CSV metadata with minimal configuration.
+* **Standards Compliance**: Ensures metadata is consistent with EnviDat standards.
+* **Schema-Driven Validation**: Leverages a generated schema for data validation, ensuring consistency with expected structures.
+* **Clear Error Reporting**: Provides detailed, actionable error messages for easy debugging.
 
 ### 7. **Conclusion**
 
