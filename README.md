@@ -201,9 +201,7 @@ else:
 ```
 If, after running the custom schema, there are still errors, the dataset can be sent back to the researchers for correction with the helpful output from frictionless. 
 
-#### 6.  **automated cracking of iCSV/NEAD files**: since WSL is pioneering self-documented CSV's, we can take advantage of the extra information in an automated process that:
-
-### NEAD Validator Overview
+#### 6. NEAD Validator Overview
 
 The **NEAD Validator** leverages the **Frictionless Framework** and **Python** to automatically ingest, validate, and report issues with metadata and data in CSV files. The tool ensures that metadata adheres to standards set by EnviDat and validates the data for completeness and compatibility using a schema.
 
