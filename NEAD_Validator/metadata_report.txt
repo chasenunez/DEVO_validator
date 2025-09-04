@@ -1,1 +1,2 @@
-OK: Metadata checks passed.
+OK: Metadata checks passed. 
+WOuld be good to have some more data here so that the user knows what is actually being done. 
