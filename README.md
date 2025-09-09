@@ -30,16 +30,14 @@ For **EnviDat**, quality assurance (QA) and control (QC) of uploaded ecological 
 
 ```
 
-nead\_validator/
-├─ nead\_validate.py         # wrapper: runs three steps on one or more files
-├─ check\_metadata.py        # parse + metadata checks (produces <file>\_metadata\_report.txt)
-├─ create\_schema.py         # build schema from metadata (writes <file>\_schema.json and <file>\_schema\_report.txt)
-├─ validate\_data.py         # validate data using schema (writes <file>\_data\_report.txt)
+nead_validator/
+├─ nead_validate.py         # wrapper: runs three steps on one or more files
+├─ check_metadata.py        # parse + metadata checks (produces <file> metadata_report.txt)
+├─ create_schema.py         # build schema from metadata (writes <file> schema.json and <file>_schema_report.txt)
+├─ validate_data.py         # validate data using schema (writes <file> data_report.txt)
 └─ data.icsv                 # dataset to be run
 
 ```
-
-
 
 ## 4. How to run (single command)
 
