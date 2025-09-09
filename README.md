@@ -1,7 +1,7 @@
 # NEAD Validator — lightweight QA/QC for self-documented CSVs (NEAD / iCSV)
 
 **NEAD Validator** is a small, modular Python tool that:
-- ingests *self-documented* CSV files (NEAD / iCSV) containing `# [METADATA]`, `# [FIELDS]`, and `# [DATA]` sections,
+- ingests *self-documented* CSV files (NEAD / iCSV) containing `[METADATA]`, `[FIELDS]`, and `[DATA]` sections,
 - validates required metadata,
 - builds a Frictionless-compatible schema from that metadata, and
 - validates the data using the Frictionless framework.
