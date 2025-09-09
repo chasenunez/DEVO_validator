@@ -18,11 +18,11 @@ This project uses the **Frictionless Framework** to express table schemas and ru
 
 For **EnviDat**, quality assurance (QA) and control (QC) of uploaded ecological datasets and their metadata is essential. Frictionless offers:
 
-* **Flexibility**: Researchers can validate their own datasets using a graphical interface (**[Open Data Editor](https://okfn.org/en/projects/open-data-editor/)**) while SciIT staff can run backend metadata and data checks through Python scripts like NEAD_validator in this repo.
+* **Flexibility**: Researchers can validate their own datasets using a graphical interface (**[Open Data Editor](https://okfn.org/en/projects/open-data-editor/)**) while SciIT staff can run backend metadata and data checks through Python scripts like `NEAD_validator` in this repo.
 
 * **Catches Common as well as Specific Errors**: Missing values, incorrect types, or malformed columns are offered out of the box, but common data error in ecological data can be added via a custom schema. 
 
-* **Works with *self-documented**: NEAD Validator is designed to work with self-documented CSV formats like NEAD/iCSV where metadata are imbeded in the file header. NEAD_Validator further checks for correspondence between the metadata and the data, and then uses that information to check the data.
+* **Works with *self-documented**: `NEAD Validator` is designed to work with self-documented CSV formats like NEAD/iCSV where metadata are imbeded in the file header. `NEAD_Validator` further checks for correspondence between the metadata and the data, and then uses that information to check the data.
 
 
 
