@@ -1,148 +1,210 @@
-### 1. **Introduction to the Frictionless Framework**
+# NEAD Validator — lightweight QA/QC for self-documented CSVs (NEAD / iCSV)
 
-The **[Frictionless Framework](https://framework.frictionlessdata.io/)** offers [open-source tools](https://github.com/frictionlessdata) that help manage and ensure data quality. It’s ideal for use cases like **[EnviDat](https://www.envidat.ch/#/)**, where the integrity and reliability of metadata and data are critical for [long term storage and reuse](https://www.dora.lib4ri.ch/wsl/islandora/object/wsl:18703). It has been used successfully in similar repositories like [DRYAD](https://blog.datadryad.org/2020/11/18/frictionless-data/) and the [Global Biodiversity Information Facility (GBIF)](https://data-blog.gbif.org/post/frictionless-data-and-darwin-core/) for data validation and quality control.
+**NEAD Validator** is a small, modular Python tool that:
+- ingests *self-documented* CSV files (NEAD / iCSV) containing `# [METADATA]`, `# [FIELDS]`, and `# [DATA]` sections,
+- validates required metadata,
+- builds a Frictionless-compatible schema from that metadata, and
+- validates the data using the Frictionless framework.
+
+This README explains what the tool does, how to run it, and shows clear examples.
+
+---
+
+## 1. Quick introduction & links
+
+This project uses the **Frictionless Framework** to express table schemas and run automated checks. Frictionless is a small, well-maintained toolkit for tabular data validation and packaging: https://framework.frictionlessdata.io/. It could be beneficial for use cases like **[EnviDat](https://www.envidat.ch/#/)**, where the integrity and reliability of metadata and data are critical for [long term storage and reuse](https://www.dora.lib4ri.ch/wsl/islandora/object/wsl:18703). It has been used successfully in similar repositories like [DRYAD](https://blog.datadryad.org/2020/11/18/frictionless-data/) and the [Global Biodiversity Information Facility (GBIF)](https://data-blog.gbif.org/post/frictionless-data-and-darwin-core/) for data validation and quality control.
 
 ### 2. **Big Picture: Why Frictionless for EnviDat?**
 
 For **EnviDat**, quality assurance (QA) and control (QC) of uploaded ecological datasets and their metadata is essential. Frictionless offers:
 
-* **Flexibility**: Researchers can validate their own datasets using a graphical interface (**[Open Data Editor](https://okfn.org/en/projects/open-data-editor/)**) while SciIT staff can run backend checks through Python scripts.
-* **Automates the Validation Process**: Ensures all incoming data fits the expected structure, types, and constraints prior to ingestion while freeing up staff for more complex tasks. 
-* **Catches Common as well as Specific Errors**: Missing values, incorrect types, or malformed columns are standard, but common data error in ecological data can be added via a custom schema. 
+* **Flexibility**: Researchers can validate their own datasets using a graphical interface (**[Open Data Editor](https://okfn.org/en/projects/open-data-editor/)**) while SciIT staff can run backend checks through Python scripts like NEAD_validator in this repo.
 
-### 3. **Example Dataset with Errors**
+* **Catches Common as well as Specific Errors**: Missing values, incorrect types, or malformed columns are offered out of the box, but common data error in ecological data can be added via a custom schema. 
 
-Let’s take a look at a **subsample of a real biomass dataset** uploaded to EnviDat, but we will introduce some intentional errors (missing values, blank headers, blank rows, NA's, data type error, etc.).
+* **Works with *self-documented**: NEAD Validator is designed to work with self-documented CSV formats like NEAD/iCSV where metadata are imbeded in the file header. NEAD_Validator further checks for correspondence between the metadata and the data, and then uses that information to check the data.
 
-Original data (with no errors) come from _"Herbivory mediates the response of below-ground food-webs to invasive grasses"_, published in the _Journal of Animal Ecology_.
-> _Fioratti, M., Cordero, I., Chinn, N., Firn, J., Holmes, J., Klein, M., Lebbink, G., Nielsen, U., Schütz, M., Zimmermann, S., Risch, A. C. (2025). Herbivory mediates the response of below-ground food-webs to invasive grasses. EnviDat. https://www.doi.org/10.16904/envidat.677._
+---
 
-```python
-import pandas as pd
-from pathlib import Path
-from io import StringIO
+## 2. Content
 
-csv_text = """
-Site.ID,Biomasstype,Site,Invasion,Treatment,Weight_20by100_cm,sample_type
-1,Litter,PnK,Native,Open,15.515,
-1,Living,PnK,Native,Open,95.89,
-2,Litter,PnK,Native,No livestock,39.14,
-2,Living,PnK,,No livestock,177.355,
-3,Litter,PnK,Native,No mammals,38.95,
-error,Living,PnK,Native,No mammals,117.16,
-,,,,,,
-,,,,,,red
-9,Litter,Vivan,Native,Open,NA,
-9,Living,Vivan,Native,Open,86.74,
-10,Litter,Vivan,Native,No livestock,79.08,
-10,Living,Vivan,Native,No livestock,110.51,
-11,Litter,Vivan,Native,No mammals,85.83,
-11,Living,Vivan,Native,No mammals,114.195,
-""".strip()+"\n"
-
-Path("biomass_sample.csv").write_text(csv_text, encoding="utf-8")
-print("Wrote biomass_sample.csv")
-
-
-# Load the dataset into pandas DataFrame
-df = pd.read_csv(StringIO(csv_text))
-df.head()  # Displaying the first few rows of the dataset
 ```
-### 4. **Step-by-Step: How Frictionless Helps QC and QA**
 
-#### 4.1 **Using the Open Data Editor (GUI) for QA**:
+nead\_validator/
+├─ nead\_validate.py         # wrapper: runs three steps on one or more files
+├─ check\_metadata.py        # parse + metadata checks (produces <file>\_metadata\_report.txt)
+├─ create\_schema.py         # build schema from metadata (writes <file>\_schema.json and <file>\_schema\_report.txt)
+├─ validate\_data.py         # validate data using schema (writes <file>\_data\_report.txt)
+└─ data.icsv                 # dataset to be run
 
-Researchers can use the **[Open Data Editor](https://okfn.org/en/projects/open-data-editor/)** to interactively validate their datasets before uploading them to EnviDat. The Open Data Editor provides a graphical interface that checks data quality in real-time.
-
-* **What the Open Data Editor Can Catch**:
-
-  * **Missing values** (e.g., "NA" entries in `Weight_20by100_cm` column).
-  * **Incorrect data types** (e.g., text in numeric fields).
-  * **Empty or missing columns**.
-  * **Outliers** (values that fall outside the expected range).
-
-#### Example: Fixing Missing Data in the Open Data Editor (GUI)
-
-Researchers can open their dataset, visualize errors, and directly modify them in the GUI. If a field has missing values, users can choose to replace them with the average or a specific value.
-
-#### 4.2 **Using Frictionless in Python for Backend Validation (QC)**:
-
-Once the preliminary check has been done by the researchers, Scientific IT staff can run a Python script (or work in the console) to validate datasets automatically before upload. This is done by defining a custom **schema** that specifies the expected structure and rules for the dataset.
-
-```python
-# Install Frictionless Framework if necessary
-!pip install frictionless
 ```
-### 4.3 **What Errors Does the Default Schema Catch?**
 
-* **Missing or null values** (e.g., NA in numerical fields).
-* **Type mismatches** (e.g., text in numeric columns).
-* **Invalid values** (e.g., `Invasion` should be either "Native" or "Invaded").
-* **Duplicate rows** or columns.
-* **Empty or missing headers**.
+---
 
-#### 4.4 **Custom Schema**:
+## 4. How to run (single command)
 
-You can **extend the default schema** to suit your own data structure. For example, you can set custom ranges for numeric columns, specific formats for strings, and define additional validation rules (e.g., a specific regex pattern for site names).
+The wrapper `nead_validate.py` is provided to run the full pipeline for one or more files:
 
-```python
-from frictionless import Schema, Resource, validate
+```bash
+# single file
+python3 nead_validate.py data.icsv
 
-schema = Schema({
-"fields": [
-{"name": "Site.ID", "type": "integer", "constraints": {"required": True}},
-{"name": "Biomasstype", "type": "string", "constraints": {"required": True, "enum": ["Living", "Litter"]}},
-{"name": "Site", "type": "string", "constraints": {"required": True}},
-{"name": "Invasion", "type": "string", "constraints": {"required": True, "enum": ["Native", "Invaded"]}},
-{"name": "Treatment", "type": "string", "constraints": {"required": True, "enum": ["Open", "No livestock", "No mammals", "No insects"]}},
-{"name": "Weight_20by100_cm", "type": "number", "constraints": {"required": True, "minimum": 0}},
-{"name": "sample_type", "type": "string", "constraints": {"required": False}},
-],
-"missingValues": ["", "NA"]
-})
-
-resource = Resource(path="biomass_sample.csv", schema=schema)
-report = validate(resource)
-print(report.valid)
+# multiple files (shell glob)
+python3 nead_validate.py *.icsv file2.icsv
 ```
-### 5. **An Idea For How to Integrate Frictionless into the EnviDat Workflow**
 
-#### NEAD Validator Overview
+Each input file will produce a set of dataset-specific outputs:
 
-The **NEAD Validator** leverages the **Frictionless Framework** and **Python** to automatically ingest, validate, and report issues with metadata and data in CSV files. The tool ensures that metadata adheres to standards set by EnviDat and validates the data for completeness and compatibility using a schema.
+```
+data_metadata_report.txt       # metadata validation results
+data_schema.json               # frictionless schema built from metadata
+data_schema_report.txt         # schema creation status
+data_clean.csv                 # (temporary) extracted [DATA] for validation
+data_data_report.txt           # data validation results (contains human-readable messages)
+```
 
-#### How It Works:
+If `data_data_report.txt` contains:
 
-1. **Metadata and Data Separation**:
-   The tool automatically ingests self-documented CSV files (such as iCSV or NEAD CSV formats). It then separates the content into two main sections: **\[METADATA]** and **\[DATA]**.
+```
+Data validation OK [PASS]
+```
 
-2. **Metadata Validation**:
-   The metadata extracted from the file is validated against the standards outlined by [EnviDat](https://www.envidat.ch/data-api/gcnet/#details_metadata). The program checks for completeness, correctness, and conformity to required metadata fields.
+the file passed validation. If not, the report lists row/column/type messages to fix.
 
-3. **Schema Construction**:
-   Using the validated metadata, the program constructs a `schema.json` that describes the expected structure, format, and data types for the dataset.
+---
 
-4. **Data Validation**:
-   The Frictionless Framework is used to validate the actual data against the constructed schema. This ensures the data meets the expected structure, is complete, and matches predefined value formats.
+## 5. File format examples
 
-5. **Machine-Readable Error Reporting**:
-   If any issues are found during validation, the program generates machine-readable error reports. These reports are designed to clearly indicate what needs to be fixed, providing the researcher with actionable feedback to improve the dataset’s quality.
+### Minimal NEAD example
 
-#### Features:
+```
+# NEAD 1.0 UTF-8
+# [METADATA]
+# field_delimiter = ,
+# srid = EPSG:4326
+# geometry = POINTZ (38.5053 72.5794 3199)
+# nodata = -999
+# [FIELDS]
+# fields = timestamp,TA1,TA2
+# database_fields_data_types = timestamp,real,real
+# [DATA]
+1996-05-12 11:00:00+00, -999, 1.23
+1996-05-12 12:00:00+00, 2.34, -999
+```
 
-* **Automatic Metadata Extraction**: Handles CSV metadata with minimal configuration.
-* **Standards Compliance**: Ensures metadata is consistent with EnviDat standards.
-* **Schema-Driven Validation**: Leverages a generated schema for data validation, ensuring consistency with expected structures.
-* **Clear Error Reporting**: Provides detailed, actionable error messages for easy debugging.
+### Minimal iCSV example (pipe `|` delimiter)
 
-### 6. **Conclusion**
+```
+# iCSV 1.0 UTF-8
+# [METADATA]
+# field_delimiter = |
+# srid = EPSG:21781
+# nodata = -999.000000
+# [FIELDS]
+# fields = timestamp|TA|RH
+# database_fields_data_types = timestamp,real,real
+# [DATA]
+2005-08-23T15:30:00|-999|50
+2005-08-23T16:30:00|1.5|45.2
+```
 
-By implementing **Frictionless**, WSL can streamline data quality assurance and control for EnviDat, empowering both researchers and IT staff:
+---
 
-* **Researchers**: Validate their datasets via the Open Data Editor, making corrections before upload.
-* **IT Staff**: Automate backend validation with Python scripts to ensure that all incoming data complies with predefined quality standards.
+## 6. Example run & sample output
 
-**Online Resources**:
+1. Run:
 
-* https://framework.frictionlessdata.io/index.html
-* https://colab.research.google.com/github/frictionlessdata/frictionless-py/blob/v4/site/docs/tutorials/notebooks/frictionless-RDM-workflows.ipynb#scrollTo=dc538394
+```bash
+python3 nead_validate.py sample.icsv
+```
+
+2. Files produced:
+
+* `sample_metadata_report.txt`
+
+  ```
+  OK: Metadata checks passed [PASS]
+  ```
+* `sample_schema.json`
+
+  ```json
+  {
+    "fields": [
+      {"name": "timestamp", "type": "datetime"},
+      {"name": "TA", "type": "number"},
+      {"name": "RH", "type": "number"}
+    ],
+    "missingValues": ["-999"]
+  }
+  ```
+* `sample_schema_report.txt`
+
+  ```
+  OK: Schema created successfully [PASS]
+  ```
+* `sample_data_report.txt` (if there are issues)
+
+  ```
+  Data validation errors [FAIL]:
+    Row 5 Col 2 [type-error]: "abc" is not a number
+    Row 8 Col 1 [datetime-error]: "1996-xx-12" is not a valid datetime
+  ```
+
+  or (if clean)
+
+  ```
+  Data validation OK [PASS]
+  ```
+
+---
+
+## 7. What the pipeline does (step-by-step)
+
+1. **Metadata parsing & checks** (`check_metadata.py`)
+
+   * Reads header lines starting with `#` and identifies `[METADATA]` and `[FIELDS]`.
+   * Validates required metadata keys exist: e.g. `field_delimiter`, `srid`, `geometry`.
+   * Checks the `fields` list length matches other FIELDS entries (e.g. `database_fields_data_types`, `units`, `scale_factor`).
+   * Writes `<file>_metadata_report.txt` summarizing problems or `[PASS]`.
+
+2. **Schema creation** (`create_schema.py`)
+
+   * Maps `database_fields_data_types` (or reasonable defaults/inference) to Frictionless field types (`datetime`, `number`, `integer`, `string`).
+   * Includes the `nodata` sentinel in `missingValues`.
+   * Writes `<file>_schema.json` and `<file>_schema_report.txt`.
+
+3. **Data extraction & validation** (`validate_data.py`)
+
+   * Extracts the `[DATA]` block into a clean CSV (no metadata/comments).
+   * Loads the `<file>_schema.json` as a Frictionless schema and validates the clean CSV.
+   * Writes `<file>_data_report.txt` with row/column/type errors or `[PASS]`.
+
+---
+
+## 8. Developing / customizing
+
+* The repository is intentionally modular:
+
+  * Edit `check_metadata.py` to add or relax metadata rules.
+  * Edit `create_schema.py` to change type-mapping rules or add constraints (e.g., ranges, `enum` lists).
+  * Edit `validate_data.py` to include extra Frictionless checks (baseline checks, custom checks).
+* To add custom constraints (e.g., `enum`, `minimum`, `maximum`), extend fields in the generated schema JSON. Frictionless will enforce those at validation time.
+
+**Example: adding an enum(eration) constraint in schema**
+
+```json
+{
+  "fields": [
+    {"name": "Invasion", "type": "string", "constraints": {"enum": ["Native", "Invaded"]}}
+  ]
+}
+```
+---
+
+## 11. Resources & links
+
+* [Frictionless framework](https://framework.frictionlessdata.io/)
+* [Frictionless checks docs](https://framework.frictionlessdata.io/docs/checks/)
+* [Frictionless schema docs](https://framework.frictionlessdata.io/docs/framework/schema.html)
+* [Open Data Editor](https://okfn.org/en/projects/open-data-editor/)
+* [Example Frictionless notebook (tutorial)](https://colab.research.google.com/github/frictionlessdata/frictionless-py)
