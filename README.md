@@ -8,7 +8,7 @@
 
 This README explains what the tool does, how to run it, and shows clear examples.
 
----
+
 
 ## 1. Quick introduction & links
 
@@ -24,7 +24,7 @@ For **EnviDat**, quality assurance (QA) and control (QC) of uploaded ecological 
 
 * **Works with *self-documented**: NEAD Validator is designed to work with self-documented CSV formats like NEAD/iCSV where metadata are imbeded in the file header. NEAD_Validator further checks for correspondence between the metadata and the data, and then uses that information to check the data.
 
----
+
 
 ## 2. Content
 
@@ -39,7 +39,7 @@ nead\_validator/
 
 ```
 
----
+
 
 ## 4. How to run (single command)
 
@@ -71,7 +71,7 @@ Data validation OK [PASS]
 
 the file passed validation. If not, the report lists row/column/type messages to fix.
 
----
+
 
 ## 5. File format examples
 
@@ -108,7 +108,7 @@ the file passed validation. If not, the report lists row/column/type messages to
 2005-08-23T16:30:00|1.5|45.2
 ```
 
----
+
 
 ## 6. Example run & sample output
 
@@ -156,7 +156,7 @@ python3 nead_validate.py sample.icsv
   Data validation OK [PASS]
   ```
 
----
+
 
 ## 7. What the pipeline does (step-by-step)
 
@@ -179,7 +179,7 @@ python3 nead_validate.py sample.icsv
    * Loads the `<file>_schema.json` as a Frictionless schema and validates the clean CSV.
    * Writes `<file>_data_report.txt` with row/column/type errors or `[PASS]`.
 
----
+
 
 ## 8. Developing / customizing
 
@@ -199,7 +199,7 @@ python3 nead_validate.py sample.icsv
   ]
 }
 ```
----
+
 
 ## 11. Resources & links
 
