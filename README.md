@@ -35,7 +35,7 @@ nead_validator/
 ├─ check_metadata.py        # parse + metadata checks (produces <file> metadata_report.txt)
 ├─ create_schema.py         # build schema from metadata (writes <file> schema.json and <file>_schema_report.txt)
 ├─ validate_data.py         # validate data using schema (writes <file> data_report.txt)
-└─ data.icsv                 # dataset to be run
+└─ data.icsv                # dataset to be run
 
 ```
 
