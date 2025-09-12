@@ -10,7 +10,7 @@ This README explains what the tool does, how to run it, and shows clear examples
 
 
 
-## 1. Quick introduction & links
+## 1. Quick introduction
 
 This project uses the **Frictionless Framework** to express table schemas and run automated checks. Frictionless is a small, well-maintained toolkit for tabular data validation and packaging: https://framework.frictionlessdata.io/. It could be beneficial for use cases like **[EnviDat](https://www.envidat.ch/#/)**, where the integrity and reliability of metadata and data are critical for [long term storage and reuse](https://www.dora.lib4ri.ch/wsl/islandora/object/wsl:18703). It has been used successfully in similar repositories like [DRYAD](https://blog.datadryad.org/2020/11/18/frictionless-data/) and the [Global Biodiversity Information Facility (GBIF)](https://data-blog.gbif.org/post/frictionless-data-and-darwin-core/) for data validation and quality control.
 
