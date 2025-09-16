@@ -1,0 +1,8 @@
+[core]
+	repositoryformatversion = 0
+	filemode = true
+	bare = true
+	ignorecase = true
+	precomposeunicode = true
+[remote "origin"]
+	url = https://chasenunez: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@github.com/chasenunez
