@@ -1,6 +1,7 @@
-# DEVO Validator — lightweight QA/QC for self-documented CSVs (NEAD / iCSV)
+# Data Enrichment and Validation Orchestrator
+# DEVO_validator — lightweight QA/QC for self-documented CSVs (NEAD / iCSV)
 
-**DEVO Validator** is a small, modular Python tool that:
+**DEVO_validator** is a small, modular Python tool that:
 - ingests *self-documented* CSV files (NEAD / iCSV) containing `[METADATA]`, `[FIELDS]`, and `[DATA]` sections,
 - validates required metadata,
 - builds a Frictionless-compatible schema from that metadata, and
@@ -25,6 +26,7 @@ For **EnviDat**, quality assurance (QA) and control (QC) of uploaded ecological 
 
 
 ```
+
        User                                               Admin                                       
      Front-End                                          Back-End                                      
 ┌─────────────────┐ ┌─────────────────────────────────────────────────────────────────────────────┐   
@@ -32,7 +34,7 @@ For **EnviDat**, quality assurance (QA) and control (QC) of uploaded ecological 
 │                 │ │  ┌────────────────────────────────────────────────┐    │  Validation │      │   
 │ ┌─────────────┐ │ │  │                                                ├───►│    Schema   ├────┐ │   
 │ │   Standard  │ │ │  │                                                │    └─────────────┘    │ │   
-│ │  .CSV file  ├─┼─┼─►│               ENRICHMENT PROGRAM               │                       │ │   
+│ │  .CSV file  ├─┼─┼─►│                   DEVO_enricher                │                       │ │   
 │ └─────────────┘ │ │  │                                                │    ┌─────────────┐    │ │   
 │                 │ │  │                                                ├───►│   Enriched  │    │ │   
 │                 │ │  └────────────────────────────────────────────────┘    │  .iCSV file ├────┤ │   
@@ -44,7 +46,7 @@ For **EnviDat**, quality assurance (QA) and control (QC) of uploaded ecological 
 │                 │ │  ┌────────────────────────────────────────────────┐    │ Informative │      │   
 │ ┌─────────────┐ │ │  │                                                ├───►│    Errors   ├────┐ │   
 │ │   Enriched  │ │ │  │                                                │    └─────────────┘    │ │   
-│ │  .iCSV file ├─┼─┼─►│           ** DATA VALIDATION PROGRAM **        │                       │ │   
+│ │  .iCSV file ├─┼─┼─►│               **  DEVO_validator  **           │                       │ │   
 │ └─────────────┘ │ │  │                                                │    ┌─────────────┐    │ │   
 │                 │ │  │                                                ├───►│  Validated  │    │ │   
 │                 │ │  └────────────────────────────────────────────────┘    │ .iCSV file  ├────┤ │   
@@ -65,14 +67,12 @@ For **EnviDat**, quality assurance (QA) and control (QC) of uploaded ecological 
 │               ◄─┼─┼───────────────────────────────────────────────────────────────────────────┘ │   
 │                 │ │                                                                             │   
 │                 │ │                                                                             │   
-└─────────────────┘ └─────────────────────────────────────────────────────────────────────────────┘   
+└─────────────────┘ └─────────────────────────────────────────────────────────────────────────────┘ 
 
 ** This Program **
-```
 
+```
 ## 2. Content
-
-```
 
 DEVO_validator/
 ├─ DEVO_validate.py         # wrapper: runs three steps on one or more files
