@@ -57,7 +57,7 @@
 This project uses the **Frictionless Framework** to express table schemas and run automated checks. Frictionless is a small, well-maintained toolkit for tabular data validation and packaging: https://framework.frictionlessdata.io/. It could be beneficial for use cases like **[EnviDat](https://www.envidat.ch/#/)**, where the integrity and reliability of metadata and data are critical for [long term storage and reuse](https://www.dora.lib4ri.ch/wsl/islandora/object/wsl:18703). It has been used successfully in similar repositories like [DRYAD](https://blog.datadryad.org/2020/11/18/frictionless-data/) and the [Global Biodiversity Information Facility (GBIF)](https://data-blog.gbif.org/post/frictionless-data-and-darwin-core/) for data validation and quality control. Frictionless **Catches Common as well as Specific Errors**: Missing values, incorrect types, or malformed columns are offered out of the box, but common data error in ecological data can be added via a custom schema. It also **Works with self-documented CSV's**: `DEVO Validator` is designed to work with self-documented CSV formats like NEAD/iCSV where metadata are imbeded in the file header. `DEVO_Validator` further checks for correspondence between the metadata and the data, and then uses that information to check the data.
 
 ## 2. Content
-
+```
 DEVO_validator/
 ├─ DEVO_validate.py         # wrapper: runs three steps on one or more files
 ├─ check_metadata.py        # parse + metadata checks (produces <file> metadata_report.txt)
