@@ -1,5 +1,5 @@
-# Data Enrichment and Validation Orchestrator
-# DEVO_validator — lightweight QA/QC for self-documented CSVs (NEAD / iCSV)
+# Data Enrichment and Validation Orchestrator (DEVO) Validator
+## QA/QC for self-documented CSVs (NEAD / iCSV)
 
 **DEVO_validator** is a small, modular Python tool that:
 - ingests *self-documented* CSV files (NEAD / iCSV) containing `[METADATA]`, `[FIELDS]`, and `[DATA]` sections,
