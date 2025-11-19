@@ -1,6 +1,6 @@
-# NEAD Validator — lightweight QA/QC for self-documented CSVs (NEAD / iCSV)
+# DEVO Validator — lightweight QA/QC for self-documented CSVs (NEAD / iCSV)
 
-**NEAD Validator** is a small, modular Python tool that:
+**DEVO Validator** is a small, modular Python tool that:
 - ingests *self-documented* CSV files (NEAD / iCSV) containing `[METADATA]`, `[FIELDS]`, and `[DATA]` sections,
 - validates required metadata,
 - builds a Frictionless-compatible schema from that metadata, and
@@ -18,10 +18,10 @@ This project uses the **Frictionless Framework** to express table schemas and ru
 
 For **EnviDat**, quality assurance (QA) and control (QC) of uploaded ecological datasets and their metadata is essential. Frictionless offers:
 
-* **Flexibility**: Researchers can validate their own datasets using a graphical interface (**[Open Data Editor](https://okfn.org/en/projects/open-data-editor/)**) while SciIT staff can run backend metadata and data checks through Python scripts like `NEAD_validator` in this repo.
+* **Flexibility**: Researchers can validate their own datasets using a graphical interface (**[Open Data Editor](https://okfn.org/en/projects/open-data-editor/)**) while SciIT staff can run backend metadata and data checks through Python scripts like `DEVO_validator` in this repo.
 
 * **Catches Common as well as Specific Errors**: Missing values, incorrect types, or malformed columns are offered out of the box, but common data error in ecological data can be added via a custom schema. 
-* **Works with self-documented CSV's**: `NEAD Validator` is designed to work with self-documented CSV formats like NEAD/iCSV where metadata are imbeded in the file header. `NEAD_Validator` further checks for correspondence between the metadata and the data, and then uses that information to check the data.
+* **Works with self-documented CSV's**: `DEVO Validator` is designed to work with self-documented CSV formats like NEAD/iCSV where metadata are imbeded in the file header. `DEVO_Validator` further checks for correspondence between the metadata and the data, and then uses that information to check the data.
 
 
 ```
@@ -74,8 +74,8 @@ For **EnviDat**, quality assurance (QA) and control (QC) of uploaded ecological 
 
 ```
 
-nead_validator/
-├─ nead_validate.py         # wrapper: runs three steps on one or more files
+DEVO_validator/
+├─ DEVO_validate.py         # wrapper: runs three steps on one or more files
 ├─ check_metadata.py        # parse + metadata checks (produces <file> metadata_report.txt)
 ├─ create_schema.py         # build schema from metadata (writes <file> schema.json and <file>_schema_report.txt)
 ├─ validate_data.py         # validate data using schema (writes <file> data_report.txt)
@@ -85,14 +85,14 @@ nead_validator/
 
 ## 4. How to run (single command)
 
-The wrapper `nead_validate.py` is provided to run the full pipeline for one or more files:
+The wrapper `DEVO_validate.py` is provided to run the full pipeline for one or more files:
 
 ```bash
 # single file
-python3 nead_validate.py data.icsv
+python3 DEVO_validate.py data.icsv
 
 # multiple files (shell glob)
-python3 nead_validate.py *.icsv file2.icsv
+python3 DEVO_validate.py *.icsv file2.icsv
 ```
 
 Each input file will produce a set of dataset-specific outputs:
@@ -157,7 +157,7 @@ the file passed validation. If not, the report lists row/column/type messages to
 1. Run:
 
 ```bash
-python3 nead_validate.py sample.icsv
+python3 DEVO_validate.py sample.icsv
 ```
 
 2. Files produced:
