@@ -2,7 +2,7 @@
 import sys
 import csv
 import json
-import os
+import osß
 from frictionless import Resource
 
 def main():

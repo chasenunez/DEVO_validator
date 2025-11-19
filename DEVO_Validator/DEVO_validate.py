@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-nead_validate.py: Wrapper to run full NEAD/iCSV validation pipeline
+DEVO_validate.py: Wrapper to run full NEAD/iCSV validation pipeline
 on one or more input files. 
 
 This wrapper is mostly just a convenient way to do everything all at once.
@@ -10,7 +10,7 @@ create_schema.py
 validate_data.py
 
 Usage:
-    python3 nead_validate.py file1.icsv file2.icsv ...
+    python3 DEVO_validate.py file1.icsv file2.icsv ...
 
 it produces:
 metadata_report.txt
@@ -30,7 +30,7 @@ def run_step(script, infile):
         text=True
     )
     if result.returncode != 0:
-        print(f"❌ {script} failed on {infile}")
+        print(f"{script} failed on {infile}")
         print(result.stdout)
         print(result.stderr)
         return False
