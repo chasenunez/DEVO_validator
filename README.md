@@ -54,16 +54,7 @@
 ```
 ## 1. Quick introduction
 
-This project uses the **Frictionless Framework** to express table schemas and run automated checks. Frictionless is a small, well-maintained toolkit for tabular data validation and packaging: https://framework.frictionlessdata.io/. It could be beneficial for use cases like **[EnviDat](https://www.envidat.ch/#/)**, where the integrity and reliability of metadata and data are critical for [long term storage and reuse](https://www.dora.lib4ri.ch/wsl/islandora/object/wsl:18703). It has been used successfully in similar repositories like [DRYAD](https://blog.datadryad.org/2020/11/18/frictionless-data/) and the [Global Biodiversity Information Facility (GBIF)](https://data-blog.gbif.org/post/frictionless-data-and-darwin-core/) for data validation and quality control.
-
-### 2. **Big Picture: Why Frictionless for EnviDat?**
-
-For **EnviDat**, quality assurance (QA) and control (QC) of uploaded ecological datasets and their metadata is essential. Frictionless offers:
-
-* **Flexibility**: Researchers can validate their own datasets using a graphical interface (**[Open Data Editor](https://okfn.org/en/projects/open-data-editor/)**) while SciIT staff can run backend metadata and data checks through Python scripts like `DEVO_validator` in this repo.
-
-* **Catches Common as well as Specific Errors**: Missing values, incorrect types, or malformed columns are offered out of the box, but common data error in ecological data can be added via a custom schema. 
-* **Works with self-documented CSV's**: `DEVO Validator` is designed to work with self-documented CSV formats like NEAD/iCSV where metadata are imbeded in the file header. `DEVO_Validator` further checks for correspondence between the metadata and the data, and then uses that information to check the data.
+This project uses the **Frictionless Framework** to express table schemas and run automated checks. Frictionless is a small, well-maintained toolkit for tabular data validation and packaging: https://framework.frictionlessdata.io/. It could be beneficial for use cases like **[EnviDat](https://www.envidat.ch/#/)**, where the integrity and reliability of metadata and data are critical for [long term storage and reuse](https://www.dora.lib4ri.ch/wsl/islandora/object/wsl:18703). It has been used successfully in similar repositories like [DRYAD](https://blog.datadryad.org/2020/11/18/frictionless-data/) and the [Global Biodiversity Information Facility (GBIF)](https://data-blog.gbif.org/post/frictionless-data-and-darwin-core/) for data validation and quality control. Frictionless **Catches Common as well as Specific Errors**: Missing values, incorrect types, or malformed columns are offered out of the box, but common data error in ecological data can be added via a custom schema. It also **Works with self-documented CSV's**: `DEVO Validator` is designed to work with self-documented CSV formats like NEAD/iCSV where metadata are imbeded in the file header. `DEVO_Validator` further checks for correspondence between the metadata and the data, and then uses that information to check the data.
 
 ## 2. Content
 
@@ -76,7 +67,7 @@ DEVO_validator/
 
 ```
 
-## 4. How to run (single command)
+## 3. How to run (single command)
 
 The wrapper `DEVO_validate.py` is provided to run the full pipeline for one or more files:
 
@@ -108,7 +99,7 @@ the file passed validation. If not, the report lists row/column/type messages to
 
 
 
-## 5. File format examples
+## 4. File format examples
 
 ### Minimal NEAD example
 
@@ -145,7 +136,7 @@ the file passed validation. If not, the report lists row/column/type messages to
 
 
 
-## 6. Example run & sample output
+## 5. Example run & sample output
 
 1. Run:
 
@@ -193,7 +184,7 @@ python3 DEVO_validate.py sample.icsv
 
 
 
-## 7. What the pipeline does (step-by-step)
+## 6. What the pipeline does (step-by-step)
 
 1. **Metadata parsing & checks** (`check_metadata.py`)
 
@@ -216,7 +207,7 @@ python3 DEVO_validate.py sample.icsv
 
 
 
-## 8. Developing / customizing
+## 7. Developing / customizing
 
 * The repository is intentionally modular:
 
@@ -234,9 +225,6 @@ python3 DEVO_validate.py sample.icsv
   ]
 }
 ```
-
-
-## 11. Resources & links
 
 * [Frictionless framework](https://framework.frictionlessdata.io/)
 * [Frictionless checks docs](https://framework.frictionlessdata.io/docs/checks/)
