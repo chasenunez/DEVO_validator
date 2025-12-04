@@ -61,7 +61,6 @@ python3 DEVO_validate.py data.icsv
 # multiple files (shell glob)
 python3 DEVO_validate.py *.icsv file2.icsv
 ```
-
 Each input file will produce a set of dataset-specific outputs:
 
 ```
