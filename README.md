@@ -1,4 +1,4 @@
-**DEVO_validator** is a small, modular Python tool that:
+**DEVO_validator** is a one modulae in a larger Python tool that:
 - ingests *self-documented* CSV files (NEAD / iCSV) containing `[METADATA]`, `[FIELDS]`, and `[DATA]` sections,
 - validates required metadata,
 - builds a Frictionless-compatible schema from that metadata, and
